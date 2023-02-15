@@ -1,16 +1,9 @@
-# axcalc
+# AxCalc
 
-A new Flutter project.
+Aplicativo com intituo de realizar calculos para facilitar e tornar mais dinamica a rotina dos anestesistas.
 
-## Getting Started
+Este é um projeto feito totalmente em Flutter.
 
-This project is a starting point for a Flutter application.
+No momento o aplicativo esta extremamente em fase inicial e não esta pronto para uso.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Em breve algumas funções estarão disponiveis para testes...
