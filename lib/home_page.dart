@@ -11,10 +11,6 @@ class HomePage extends StatelessWidget {
     'Índice de Massa Corporal',
   ];
 
-  resposta() {
-    print("Selecionado");
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,29 +18,14 @@ class HomePage extends StatelessWidget {
         title: Text('AxCalc'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Text(items[0]),
-          ElevatedButton(
-            onPressed: resposta,
-            child: Text("Selecionar"),
-          ),
-          Text(items[1]),
-          ElevatedButton(
-            onPressed: resposta,
-            child: Text("Selecionar"),
-          ),
-          Text(items[2]),
-          ElevatedButton(
-            onPressed: resposta,
-            child: Text("Selecionar"),
-          ),
-          Text(items[3]),
-          ElevatedButton(
-            onPressed: resposta,
-            child: Text("Selecionar"),
-          ),
-        ],
+      body: ListView.separated(
+        itemBuilder: ((context, index) {
+          return ListTile(
+            title: Text(items[3]),
+          );
+        }),
+        separatorBuilder: ((context, index) => const Divider()),
+        itemCount: 4,
       ),
     );
   }
