@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final items = [
     'Anticoagulantes e Anestesia no Neuroeixo',
     'Balanço Hídrico Simplificado',
@@ -11,21 +16,47 @@ class HomePage extends StatelessWidget {
     'Índice de Massa Corporal',
   ];
 
+  var select = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: Text('AxCalc'),
         centerTitle: true,
       ),
       body: ListView.separated(
+        padding: EdgeInsets.all(13),
         itemBuilder: ((context, index) {
           return ListTile(
-            title: Text(items[3]),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(12),
+              ),
+            ),
+            title: Text(
+              items[index],
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            selected: select.contains(items[index]),
+            selectedTileColor: Colors.blue[50],
+            onLongPress: (() {
+              setState(
+                () {
+                  (select.contains(items[index]))
+                      ? select.remove(items[index])
+                      : select.add(items[index]);
+                },
+              );
+            }),
           );
         }),
         separatorBuilder: ((context, index) => const Divider()),
-        itemCount: 4,
+        itemCount: items.length,
       ),
     );
   }
