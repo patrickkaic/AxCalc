@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_import, implementation_imports, unused_import, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, avoid_print
+import 'package:axcalc/pages/page_1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -56,6 +57,14 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  showDetails(items) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PageDetails(items: items),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,14 +88,13 @@ class _HomePageState extends State<HomePage> {
             selected: select.contains(items[index]),
             selectedTileColor: Colors.blue[50],
             onLongPress: (() {
-              setState(
-                () {
-                  (select.contains(items[index]))
-                      ? select.remove(items[index])
-                      : select.add(items[index]);
-                },
-              );
+              setState(() {
+                (select.contains(items[index]))
+                    ? select.remove(items[index])
+                    : select.add(items[index]);
+              });
             }),
+            onTap: () => showDetails(items[index]),
           );
         }),
         separatorBuilder: ((context, index) => const Divider()),
