@@ -18,14 +18,48 @@ class _HomePageState extends State<HomePage> {
 
   var select = [];
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+  appBarDinamc() {
+    if (select.isEmpty) {
+      return AppBar(
         elevation: 0,
         title: Text('AxCalc'),
         centerTitle: true,
-      ),
+      );
+    } else {
+      return AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            setState(() {
+              select = [];
+            });
+          },
+        ),
+        title: Text('${select.length} Selecionadas'),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
+        toolbarTextStyle: TextTheme(
+            headline6: TextStyle(
+          color: Colors.black87,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        )).bodyText2,
+        titleTextStyle: TextTheme(
+            headline6: TextStyle(
+          color: Colors.black87,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        )).headline6,
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: appBarDinamc(),
       body: ListView.separated(
         padding: EdgeInsets.all(13),
         itemBuilder: ((context, index) {
@@ -58,6 +92,20 @@ class _HomePageState extends State<HomePage> {
         separatorBuilder: ((context, index) => const Divider()),
         itemCount: items.length,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: select.isNotEmpty
+          ? FloatingActionButton.extended(
+              onPressed: (() {}),
+              icon: Icon(Icons.star_border),
+              label: Text(
+                'Favoritar',
+                style: TextStyle(
+                  letterSpacing: 0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            )
+          : null,
     );
   }
 }
