@@ -1,4 +1,4 @@
-# AxCalc
+# AxCalc 👨‍⚕️
 
 Aplicativo com intituo de realizar calculos para facilitar e tornar mais dinamica a rotina dos anestesistas.
 
