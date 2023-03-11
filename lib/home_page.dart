@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_import, implementation_imports, unused_import, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, avoid_print
-import 'package:axcalc/pages/page_1.dart';
+import 'package:axcalc/pages/page_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -11,9 +11,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final items = [
-    'Anticoagulantes e Anestesia no Neuroeixo',
-    'Balanço Hídrico Simplificado',
-    'Variação do Volume Sistólico',
     'Índice de Massa Corporal',
   ];
 
