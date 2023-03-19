@@ -13,9 +13,6 @@ class AxCalc extends StatelessWidget {
     return MaterialApp(
       title: 'AxCalc',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.indigo,
-      ),
       home: HomePage(),
     );
   }
