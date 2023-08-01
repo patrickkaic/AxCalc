@@ -4,7 +4,9 @@ import 'package:axcalc/my_cards.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,50 +44,41 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
         children: [
-          Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
-            child: ListTile(
-              title: Text(
-                'Taxa de Infusão em ml/h',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
+          Container(
+            constraints: BoxConstraints(maxHeight: 85),
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                hintText: 'Buscar cálculo',
+                filled: true,
+                fillColor: Color.fromARGB(82, 181, 180, 180),
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.clear),
+                  onPressed: () => _searchController.clear(),
+                ),
+                prefixIcon: IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {},
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: BorderSide(color: Colors.transparent),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: BorderSide(color: Colors.transparent),
                 ),
               ),
             ),
           ),
-          MyCards(
-            text: 'Conversor de taxas de infusão',
-          ),
-          Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
-            child: ListTile(
-              title: Text(
-                'Dose fracionada',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-          Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
-            child: ListTile(
-              title: Text(
-                'Balanço hidrico simplificado',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          )
+          MyCards(text: 'IMC, peso ideal e corrigido'),
+          MyCards(text: 'Taxa de Infusão em ml/h'),
+          MyCards(text: 'Conversor de taxas de infusão'),
+          MyCards(text: 'Dose fracionada'),
+          MyCards(text: 'Balanço hidrico simplificado')
         ],
       ),
     );
