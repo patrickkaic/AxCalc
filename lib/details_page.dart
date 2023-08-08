@@ -13,7 +13,7 @@ class _detailsPageState extends State<detailsPage> {
     return Scaffold(
       body: Center(
         child: Column(
-          children: [Text('teste')],
+          children: [Text('Parabéns funcionou')],
         ),
       ),
     );

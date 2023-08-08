@@ -1,5 +1,6 @@
-import 'package:axcalc/details_page.dart';
 import 'package:flutter/material.dart';
+
+import '../details_page.dart';
 
 class MyCards extends StatelessWidget {
   const MyCards({
@@ -20,7 +21,7 @@ class MyCards extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => detailsPage(),
+              builder: (context) => const detailsPage(),
             ),
           );
         },

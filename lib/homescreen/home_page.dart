@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:axcalc/my_cards.dart';
+import 'package:axcalc/homescreen/my_cards.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -74,7 +74,9 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          MyCards(text: 'IMC, peso ideal e corrigido'),
+          MyCards(
+            text: 'IMC, peso ideal e corrigido',
+          ),
           MyCards(text: 'Taxa de Infusão em ml/h'),
           MyCards(text: 'Conversor de taxas de infusão'),
           MyCards(text: 'Dose fracionada'),
