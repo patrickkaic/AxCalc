@@ -1,3 +1,4 @@
+import 'package:axcalc/details_page.dart';
 import 'package:flutter/material.dart';
 
 class MyCards extends StatelessWidget {
@@ -15,7 +16,14 @@ class MyCards extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       child: ListTile(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => detailsPage(),
+            ),
+          );
+        },
         title: Text(
           text,
           style: TextStyle(
