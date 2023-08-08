@@ -13,7 +13,12 @@ class _detailsPageState extends State<detailsPage> {
     return Scaffold(
       body: Center(
         child: Column(
-          children: [Text('Parabéns funcionou')],
+          children: [
+            Text('Parabéns funcionou'),
+            FloatingActionButton(onPressed: () {
+              Navigator.pop(context);
+            })
+          ],
         ),
       ),
     );

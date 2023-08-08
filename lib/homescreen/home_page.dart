@@ -74,9 +74,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          MyCards(
-            text: 'IMC, peso ideal e corrigido',
-          ),
+          MyCards(text: 'IMC, peso ideal e corrigido'),
           MyCards(text: 'Taxa de Infusão em ml/h'),
           MyCards(text: 'Conversor de taxas de infusão'),
           MyCards(text: 'Dose fracionada'),
