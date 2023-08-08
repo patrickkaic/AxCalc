@@ -11,13 +11,13 @@ class _detailsPageState extends State<detailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('IMC, peso ideal e corrigido'),
+      ),
       body: Center(
         child: Column(
           children: [
-            Text('Parabéns funcionou'),
-            FloatingActionButton(onPressed: () {
-              Navigator.pop(context);
-            })
+            Text('Tela de IMC'),
           ],
         ),
       ),

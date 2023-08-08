@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:axcalc/details_page/details_page_inf.dart';
 import 'package:axcalc/homescreen/my_cards.dart';
 import 'package:flutter/material.dart';
+
+import '../details_page/details_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -74,11 +77,28 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          MyCards(text: 'IMC, peso ideal e corrigido'),
-          MyCards(text: 'Taxa de Infusão em ml/h'),
-          MyCards(text: 'Conversor de taxas de infusão'),
-          MyCards(text: 'Dose fracionada'),
-          MyCards(text: 'Balanço hidrico simplificado')
+          MyCards(
+            text: 'IMC, peso ideal e corrigido',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const detailsPage(),
+                ),
+              );
+            },
+          ),
+          MyCards(
+            text: 'Taxa de infusão em ml/h',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const detailsPageInf(),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
