@@ -4,7 +4,7 @@ import 'package:axcalc/details_page/details_page_inf.dart';
 import 'package:axcalc/homescreen/my_cards.dart';
 import 'package:flutter/material.dart';
 
-import '../details_page/details_page.dart';
+import '../details_page/details_page_imc.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const detailsPage(),
+                  builder: (context) => const DetailsPage(),
                 ),
               );
             },
