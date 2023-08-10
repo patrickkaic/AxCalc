@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
@@ -32,7 +33,48 @@ class _DetailsPageState extends State<DetailsPage> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            child: Container(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                'Sexo do paciente',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Color.fromARGB(255, 169, 167, 167),
+                ),
+              ),
+            ),
+          ),
+          ToggleSwitch(
+            initialLabelIndex: null,
+            minWidth: 180,
+            minHeight: 40,
+            cornerRadius: 90,
+            fontSize: 17,
+            activeBorders: [
+              Border.all(
+                color: Color.fromARGB(255, 82, 139, 238),
+                width: 2.0,
+              ),
+            ],
+            activeBgColors: [
+              [Color.fromARGB(255, 155, 201, 237)],
+              [Color.fromARGB(255, 155, 201, 237)]
+            ],
+            doubleTapDisable: true,
+            borderColor: [Color.fromARGB(255, 233, 230, 230)],
+            borderWidth: 2.0,
+            activeFgColor: Colors.black,
+            inactiveBgColor: Colors.white,
+            inactiveFgColor: Color.fromARGB(255, 146, 144, 144),
+            totalSwitches: 2,
+            labels: ['Masculino', 'Feminino'],
+            onToggle: (index) {
+              print('Selected item Position: $index');
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
             child: Row(
               children: [
                 Expanded(
@@ -95,9 +137,18 @@ class _DetailsPageState extends State<DetailsPage> {
               ],
             ),
           ),
-          FloatingActionButton(
-            onPressed: () {},
-            child: Text('Calcular'),
+          SizedBox(
+            width: 120,
+            height: 100,
+            child: FittedBox(
+              child: FloatingActionButton.extended(
+                onPressed: () {},
+                label: Text(
+                  'Calcular',
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+            ),
           )
         ],
       ),
