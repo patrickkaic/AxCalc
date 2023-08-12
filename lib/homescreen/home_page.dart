@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:axcalc/details_page/Infusion/details_page_inf.dart';
 import 'package:axcalc/homescreen/my_cards.dart';
 import 'package:flutter/material.dart';
-
-import '../details_page/IMC/details_page_imc.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -80,23 +78,13 @@ class HomePage extends StatelessWidget {
           MyCards(
             text: 'IMC, peso ideal e corrigido',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const DetailsPage(),
-                ),
-              );
+              GoRouter.of(context).push('/detalhesimc');
             },
           ),
           MyCards(
             text: 'Taxa de infusão em ml/h',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const detailsPageInf(),
-                ),
-              );
+              GoRouter.of(context).push('/detalhesinf');
             },
           ),
         ],

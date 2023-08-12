@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:axcalc/details_page/IMC/result_imc.dart';
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -11,10 +12,37 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  TextEditingController inputController1 = TextEditingController();
+  TextEditingController inputController2 = TextEditingController();
+  double _resultado = 0.0;
+  int sexo = 0;
+
+  void _calcularIMC() {
+    double peso = double.parse(inputController1.text);
+    double altura = double.parse(inputController2.text) / 100;
+    double imc = peso / (altura * altura);
+
+    switch (sexo) {
+      case 1:
+        imc = imc * 0.98;
+        break;
+    }
+
+    setState(() {
+      _resultado = imc;
+    });
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultadoScreen(_resultado),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//First AppBar
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(40.0),
         child: AppBar(
@@ -48,8 +76,6 @@ class _DetailsPageState extends State<DetailsPage> {
           ],
         ),
       ),
-
-//Column with AppBar, Switch buttons and inputs
       body: Column(
         children: [
           Padding(
@@ -85,7 +111,7 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
           ),
           ToggleSwitch(
-            initialLabelIndex: null,
+            initialLabelIndex: sexo,
             minWidth: 180,
             minHeight: 40,
             cornerRadius: 90,
@@ -100,7 +126,6 @@ class _DetailsPageState extends State<DetailsPage> {
               [Color.fromARGB(255, 155, 201, 237)],
               [Color.fromARGB(255, 155, 201, 237)]
             ],
-            doubleTapDisable: true,
             borderColor: [Color.fromARGB(255, 233, 230, 230)],
             borderWidth: 2.0,
             activeFgColor: Colors.black,
@@ -109,7 +134,10 @@ class _DetailsPageState extends State<DetailsPage> {
             totalSwitches: 2,
             labels: ['Masculino', 'Feminino'],
             onToggle: (index) {
-              print('Selected item Position: $index');
+              if (index == null) {
+                return;
+              }
+              sexo = index;
             },
           ),
           SizedBox(
@@ -121,6 +149,7 @@ class _DetailsPageState extends State<DetailsPage> {
               children: [
                 Expanded(
                   child: TextFormField(
+                    controller: inputController1,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
@@ -152,6 +181,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 SizedBox(width: 20),
                 Expanded(
                   child: TextFormField(
+                    controller: inputController2,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
@@ -189,7 +219,7 @@ class _DetailsPageState extends State<DetailsPage> {
             height: 100,
             child: FittedBox(
               child: FloatingActionButton.extended(
-                onPressed: () {},
+                onPressed: _calcularIMC,
                 label: Text(
                   'CALCULAR',
                   style: TextStyle(fontSize: 15),
