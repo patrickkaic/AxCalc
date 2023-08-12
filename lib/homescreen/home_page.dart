@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:axcalc/details_page/details_page_inf.dart';
+import 'package:axcalc/details_page/Infusion/details_page_inf.dart';
 import 'package:axcalc/homescreen/my_cards.dart';
 import 'package:flutter/material.dart';
 
-import '../details_page/details_page_imc.dart';
+import '../details_page/IMC/details_page_imc.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});

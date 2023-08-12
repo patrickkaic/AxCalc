@@ -14,32 +14,71 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+//First AppBar
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0),
+        preferredSize: Size.fromHeight(40.0),
         child: AppBar(
           leading: BackButton(color: Colors.black),
           backgroundColor: Colors.white,
+          centerTitle: true,
           elevation: 0,
-          title: const Text(
-            'IMC, peso ideal e corrigido',
+          title: Text(
+            'Cálculo',
             style: TextStyle(
               color: Color.fromARGB(255, 52, 63, 92),
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.star_border_outlined,
+                color: Color.fromARGB(255, 169, 167, 167),
+              ),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.info_outline_rounded,
+                color: Color.fromARGB(255, 169, 167, 167),
+              ),
+            ),
+          ],
         ),
       ),
+
+//Column with AppBar, Switch buttons and inputs
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            padding: const EdgeInsets.all(0.0),
+            child: AppBar(
+              elevation: 0,
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.white,
+              title: Text(
+                'IMC, Peso Ideal e Peso Ideal \nCorrigido',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 52, 63, 92),
+                  fontSize: 21,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 2,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 9),
             child: Container(
               alignment: Alignment.bottomLeft,
               child: Text(
-                'Sexo do paciente',
+                'SEXO DO PACIENTE',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 13,
                   color: Color.fromARGB(255, 169, 167, 167),
                 ),
               ),
@@ -73,6 +112,9 @@ class _DetailsPageState extends State<DetailsPage> {
               print('Selected item Position: $index');
             },
           ),
+          SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
             child: Row(
@@ -83,17 +125,21 @@ class _DetailsPageState extends State<DetailsPage> {
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: Color.fromARGB(255, 202, 200, 200)),
+                          color: Color.fromARGB(255, 202, 200, 200),
+                        ),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      labelText: 'Peso',
+                      labelText: 'PESO',
                       suffixIcon: Align(
                         widthFactor: 1.0,
                         heightFactor: 1.0,
-                        child: Text('kg',
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Color.fromARGB(255, 151, 149, 149))),
+                        child: Text(
+                          'kg',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Color.fromARGB(255, 151, 149, 149),
+                          ),
+                        ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -114,7 +160,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         ),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      labelText: 'Altura',
+                      labelText: 'ALTURA',
                       suffixIcon: Align(
                         widthFactor: 1.0,
                         heightFactor: 1.0,
@@ -128,7 +174,8 @@ class _DetailsPageState extends State<DetailsPage> {
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: const Color.fromARGB(255, 202, 200, 200)),
+                          color: const Color.fromARGB(255, 202, 200, 200),
+                        ),
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
@@ -144,12 +191,12 @@ class _DetailsPageState extends State<DetailsPage> {
               child: FloatingActionButton.extended(
                 onPressed: () {},
                 label: Text(
-                  'Calcular',
+                  'CALCULAR',
                   style: TextStyle(fontSize: 15),
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
