@@ -43,8 +43,28 @@ class ResultadoScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(
-        child: Text('Seu IMC é: ${resultado.toStringAsFixed(2)}'),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: AppBar(
+              elevation: 0,
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.white,
+              title: Text(
+                'IMC, Peso Ideal e Peso Ideal \nCorrigido',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 52, 63, 92),
+                  fontSize: 21,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Text('Seu IMC é: ${resultado.toStringAsFixed(2)}'),
+          ),
+        ],
       ),
     );
   }

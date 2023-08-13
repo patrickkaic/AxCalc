@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           MyCards(
-            text: 'IMC, peso ideal e corrigido',
+            text: 'IMC, peso ideal e peso ideal corrigido',
             onTap: () {
               GoRouter.of(context).push('/detalhesimc');
             },
