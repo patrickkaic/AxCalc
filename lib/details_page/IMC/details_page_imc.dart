@@ -219,6 +219,7 @@ class _DetailsPageState extends State<DetailsPage> {
             height: 100,
             child: FittedBox(
               child: FloatingActionButton.extended(
+                elevation: 0,
                 onPressed: _calcularIMC,
                 label: Text(
                   'CALCULAR',

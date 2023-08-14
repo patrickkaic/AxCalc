@@ -5,7 +5,20 @@ import 'package:flutter/material.dart';
 class ResultadoScreen extends StatelessWidget {
   final double resultado;
 
-  ResultadoScreen(this.resultado);
+  const ResultadoScreen(this.resultado, {super.key});
+
+  _results() {
+    if (resultado < 18.5) {
+      return "IMC Abaixo do peso";
+    }
+    if (resultado < 24.9) {
+      return "IMC Normal";
+    }
+    if (resultado < 29.9) {
+      return "IMC Sobrepeso";
+    }
+    return "IMC Obesidade";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +59,7 @@ class ResultadoScreen extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(0.0),
+            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
             child: AppBar(
               elevation: 0,
               automaticallyImplyLeading: false,
@@ -61,8 +74,71 @@ class ResultadoScreen extends StatelessWidget {
               ),
             ),
           ),
-          Center(
-            child: Text('Seu IMC é: ${resultado.toStringAsFixed(2)}'),
+          Padding(
+            padding: const EdgeInsets.all(19.0),
+            child: Container(
+              height: 250,
+              width: 300,
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 233, 235, 240),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(15),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 18),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Resultado',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        _results(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        resultado.toStringAsFixed(2),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 120,
+            height: 100,
+            child: FittedBox(
+              child: FloatingActionButton.extended(
+                backgroundColor: Color.fromARGB(80, 70, 142, 247),
+                elevation: 0,
+                onPressed: () {},
+                label: Text(
+                  'REINICIAR',
+                  style: TextStyle(fontSize: 15, color: Colors.blue),
+                ),
+              ),
+            ),
           ),
         ],
       ),
