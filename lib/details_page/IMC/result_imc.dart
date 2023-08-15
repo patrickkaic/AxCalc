@@ -88,8 +88,8 @@ class ResultadoScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 18),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -108,6 +108,7 @@ class ResultadoScreen extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         _results(),
+                        style: TextStyle(fontSize: 17),
                       ),
                     ),
                   ),
@@ -116,11 +117,24 @@ class ResultadoScreen extends StatelessWidget {
                         const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(
-                        resultado.toStringAsFixed(2),
-                      ),
+                      child: Text(resultado.toStringAsFixed(2),
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold)),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 15),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Peso Ideal',
+                        style: TextStyle(fontSize: 17),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
