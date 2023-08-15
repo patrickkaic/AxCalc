@@ -14,28 +14,16 @@ class DetailsPage extends StatefulWidget {
 class _DetailsPageState extends State<DetailsPage> {
   TextEditingController inputController1 = TextEditingController();
   TextEditingController inputController2 = TextEditingController();
-  double _resultado = 0.0;
+
   int sexo = 0;
 
-  void _calcularIMC() {
+  _calcularIMC() {
     double peso = double.parse(inputController1.text);
     double altura = double.parse(inputController2.text) / 100;
-    double imc = peso / (altura * altura);
-
-    switch (sexo) {
-      case 1:
-        imc = imc * 0.98;
-        break;
-    }
-
-    setState(() {
-      _resultado = imc;
-    });
-
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResultadoScreen(_resultado),
+        builder: (context) => ResultadoScreen(peso, altura, sexo),
       ),
     );
   }

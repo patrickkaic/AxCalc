@@ -2,22 +2,74 @@
 
 import 'package:flutter/material.dart';
 
-class ResultadoScreen extends StatelessWidget {
-  final double resultado;
+class ResultadoScreen extends StatefulWidget {
+  final double peso;
+  final double altura;
+  final int sexo;
 
-  const ResultadoScreen(this.resultado, {super.key});
+  const ResultadoScreen(this.peso, this.altura, this.sexo, {super.key});
+
+  @override
+  State<ResultadoScreen> createState() => _ResultadoScreenState();
+}
+
+class _ResultadoScreenState extends State<ResultadoScreen> {
+  _calcularIMC() {
+    double peso = widget.peso;
+    double altura = widget.altura;
+    double imc = peso / (altura * altura);
+
+    return imc.toStringAsFixed(2);
+  }
 
   _results() {
-    if (resultado < 18.5) {
+    double resultadoIMC = double.parse(_calcularIMC());
+    if (resultadoIMC < 18.5) {
       return "IMC Abaixo do peso";
     }
-    if (resultado < 24.9) {
+    if (resultadoIMC < 24.9) {
       return "IMC Normal";
     }
-    if (resultado < 29.9) {
+    if (resultadoIMC < 29.9) {
       return "IMC Sobrepeso";
     }
     return "IMC Obesidade";
+  }
+
+  _calcularPI() {
+    int sexo = widget.sexo;
+    double altura = widget.altura;
+    double? pesoIdeal;
+
+    switch (sexo) {
+      case 0:
+        pesoIdeal = (altura * 100) - 100;
+        break;
+      case 1:
+        pesoIdeal = (altura * 100) - 105;
+        break;
+    }
+    return pesoIdeal.toString();
+  }
+
+  _calcularPIC() {
+    int sexo = widget.sexo;
+    double peso = widget.peso;
+    double altura = widget.altura;
+
+    double? pesoIdealCorrigido;
+
+    switch (sexo) {
+      case 0:
+        pesoIdealCorrigido =
+            ((altura * 100) - 100) + (0.4 * (peso - ((altura * 100) - 100)));
+        break;
+      case 1:
+        pesoIdealCorrigido =
+            ((altura * 100) - 105) + (0.4 * (peso - ((altura * 100) - 105)));
+        break;
+    }
+    return pesoIdealCorrigido.toString();
   }
 
   @override
@@ -77,7 +129,7 @@ class ResultadoScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(19.0),
             child: Container(
-              height: 250,
+              height: 265,
               width: 300,
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 233, 235, 240),
@@ -117,16 +169,19 @@ class ResultadoScreen extends StatelessWidget {
                         const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(resultado.toStringAsFixed(2),
+                      child: Text(_calcularIMC(),
                           style: TextStyle(
                               color: Colors.blue,
                               fontSize: 28,
                               fontWeight: FontWeight.bold)),
                     ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 15),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -134,7 +189,45 @@ class ResultadoScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 17),
                       ),
                     ),
-                  )
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(_calcularPI(),
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Peso ideal corrigido',
+                        style: TextStyle(fontSize: 17),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(_calcularPIC(),
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  ),
                 ],
               ),
             ),
