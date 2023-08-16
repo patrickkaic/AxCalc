@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ResultadoScreen extends StatefulWidget {
   final double peso;
@@ -24,16 +25,30 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
 
   _results() {
     double resultadoIMC = double.parse(_calcularIMC());
+
     if (resultadoIMC < 18.5) {
-      return "IMC Abaixo do peso";
+      return "Abaixo do peso";
     }
     if (resultadoIMC < 24.9) {
-      return "IMC Normal";
+      return "Normal";
     }
     if (resultadoIMC < 29.9) {
-      return "IMC Sobrepeso";
+      return "Sobrepeso";
     }
-    return "IMC Obesidade";
+    return "Obesidade";
+  }
+
+  _textColor() {
+    final imc = double.parse(_calcularIMC());
+    if (imc < 18.5) {
+      return Colors.red; // Defina a cor desejada para cada resultado
+    } else if (imc < 24.9) {
+      return Colors.green;
+    } else if (imc < 29.9) {
+      return Colors.orange;
+    } else {
+      return Colors.red;
+    }
   }
 
   _calcularPI() {
@@ -49,7 +64,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
         pesoIdeal = (altura * 100) - 105;
         break;
     }
-    return pesoIdeal.toString();
+    return '${pesoIdeal.toString()} kg';
   }
 
   _calcularPIC() {
@@ -69,7 +84,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
             ((altura * 100) - 105) + (0.4 * (peso - ((altura * 100) - 105)));
         break;
     }
-    return pesoIdealCorrigido.toString();
+    return '${pesoIdealCorrigido.toString()} kg';
   }
 
   @override
@@ -154,14 +169,28 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        _results(),
-                        style: TextStyle(fontSize: 17),
-                      ),
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    child: Row(
+                      children: [
+                        Text(
+                          'IMC',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 0, horizontal: 5),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              _results(),
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  color: _textColor(),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
@@ -181,7 +210,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -195,11 +224,13 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                         const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(_calcularPI(),
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold)),
+                      child: Text(
+                        _calcularPI(),
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -239,7 +270,9 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
               child: FloatingActionButton.extended(
                 backgroundColor: Color.fromARGB(80, 70, 142, 247),
                 elevation: 0,
-                onPressed: () {},
+                onPressed: () {
+                  GoRouter.of(context).pop();
+                },
                 label: Text(
                   'REINICIAR',
                   style: TextStyle(fontSize: 15, color: Colors.blue),

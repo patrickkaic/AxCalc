@@ -76,13 +76,13 @@ class HomePage extends StatelessWidget {
             ),
           ),
           MyCards(
-            text: 'IMC, peso ideal e peso ideal corrigido',
+            text: 'IMC, Peso Ideal e Corrigido',
             onTap: () {
               GoRouter.of(context).push('/detalhesimc');
             },
           ),
           MyCards(
-            text: 'Taxa de infusão em ml/h',
+            text: 'Taxa de Infusão em ml/h',
             onTap: () {
               GoRouter.of(context).push('/detalhesinf');
             },

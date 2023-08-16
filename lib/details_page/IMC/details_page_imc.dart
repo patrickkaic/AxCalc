@@ -14,7 +14,6 @@ class DetailsPage extends StatefulWidget {
 class _DetailsPageState extends State<DetailsPage> {
   TextEditingController inputController1 = TextEditingController();
   TextEditingController inputController2 = TextEditingController();
-
   int sexo = 0;
 
   _calcularIMC() {
