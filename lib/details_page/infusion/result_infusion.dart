@@ -3,29 +3,21 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ResultadoJejum extends StatefulWidget {
-  final double peso;
+class ResultadoTaxa extends StatefulWidget {
+  final double volume;
   final double horas;
-  const ResultadoJejum(this.peso, this.horas, {super.key});
+  const ResultadoTaxa(this.volume, this.horas, {super.key});
   @override
-  State<ResultadoJejum> createState() => _ResultadoJejumState();
+  State<ResultadoTaxa> createState() => _ResultadoTaxaState();
 }
 
-class _ResultadoJejumState extends State<ResultadoJejum> {
-  _calcularJejum() {
-    double peso = widget.peso;
+class _ResultadoTaxaState extends State<ResultadoTaxa> {
+  _calcularTaxa() {
+    double volume = widget.volume;
     double horas = widget.horas;
-    double jejum = horas * peso;
+    double taxa = volume / horas;
 
-    return '${jejum.toStringAsFixed(2)} ml';
-  }
-
-  _calcularJejum2() {
-    double peso = widget.peso;
-    double horas = widget.horas;
-    double jejum = (horas * peso) / 2;
-
-    return '${jejum.toStringAsFixed(2)} ml';
+    return '${taxa.toStringAsFixed(2)} ml/h';
   }
 
   @override
@@ -73,7 +65,7 @@ class _ResultadoJejumState extends State<ResultadoJejum> {
               automaticallyImplyLeading: false,
               backgroundColor: Colors.white,
               title: Text(
-                'Reposição de Jejum',
+                'Taxa de Infusão em ml/h',
                 style: TextStyle(
                   color: Color.fromARGB(255, 52, 63, 92),
                   fontSize: 21,
@@ -85,7 +77,7 @@ class _ResultadoJejumState extends State<ResultadoJejum> {
           Padding(
             padding: const EdgeInsets.all(19.0),
             child: Container(
-              height: 260,
+              height: 123,
               width: 350,
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 233, 235, 240),
@@ -114,7 +106,7 @@ class _ResultadoJejumState extends State<ResultadoJejum> {
                     child: Row(
                       children: [
                         Text(
-                          'PRIMEIRA HORA',
+                          'TEMPO DE INFUSÃO',
                           style: TextStyle(
                             fontSize: 17,
                             color: Color.fromARGB(255, 169, 167, 167),
@@ -128,7 +120,7 @@ class _ResultadoJejumState extends State<ResultadoJejum> {
                         const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(_calcularJejum(),
+                      child: Text(_calcularTaxa(),
                           style: TextStyle(
                               color: Colors.blue,
                               fontSize: 28,
@@ -137,63 +129,6 @@ class _ResultadoJejumState extends State<ResultadoJejum> {
                   ),
                   SizedBox(
                     height: 10,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'SEGUNDA HORA',
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Color.fromARGB(255, 169, 167, 167),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        _calcularJejum2(),
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'TERCERIRA HORA',
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Color.fromARGB(255, 169, 167, 167),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(_calcularJejum2(),
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold)),
-                    ),
                   ),
                 ],
               ),

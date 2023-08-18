@@ -87,6 +87,12 @@ class HomePage extends StatelessWidget {
               GoRouter.of(context).push('/detalhesjejum');
             },
           ),
+          MyCards(
+            text: 'Taxa de Infusão em ml/h',
+            onTap: () {
+              GoRouter.of(context).push('/detalhesinf');
+            },
+          ),
         ],
       ),
     );

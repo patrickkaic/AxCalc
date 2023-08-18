@@ -1,26 +1,27 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:axcalc/details_page/infusion/result_infusion.dart';
+
 import 'package:flutter/material.dart';
 
-class detailsPageJejum extends StatefulWidget {
-  const detailsPageJejum({super.key});
+class detailsPageInfusion extends StatefulWidget {
+  const detailsPageInfusion({super.key});
 
   @override
-  State<detailsPageJejum> createState() => _detailsPageJejumState();
+  State<detailsPageInfusion> createState() => _detailsPageInfusionState();
 }
 
-class _detailsPageJejumState extends State<detailsPageJejum> {
+class _detailsPageInfusionState extends State<detailsPageInfusion> {
   TextEditingController inputController1 = TextEditingController();
   TextEditingController inputController2 = TextEditingController();
 
-  _calcularJejum() {
-    double peso = double.parse(inputController1.text);
+  _calcularInfusion() {
+    double volumes = double.parse(inputController1.text);
     double horas = double.parse(inputController2.text);
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResultadoTaxa(peso, horas),
+        builder: (context) => ResultadoTaxa(volumes, horas),
       ),
     );
   }
@@ -70,7 +71,7 @@ class _detailsPageJejumState extends State<detailsPageJejum> {
               automaticallyImplyLeading: false,
               backgroundColor: Colors.white,
               title: Text(
-                'Reposição de Jejum',
+                'Taxa de Infusão em ml/h',
                 style: TextStyle(
                   color: Color.fromARGB(255, 52, 63, 92),
                   fontSize: 21,
@@ -87,16 +88,16 @@ class _detailsPageJejumState extends State<detailsPageJejum> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  'PESO',
+                  'VOLUME',
                   style: TextStyle(
                     fontSize: 14,
                     color: Color.fromARGB(255, 169, 167, 167),
                   ),
                 ),
               ),
-              SizedBox(width: 140),
+              SizedBox(width: 115),
               Text(
-                'TEMPO DE JEJUM',
+                'TEMPO DE INFUSÃO',
                 style: TextStyle(
                   fontSize: 14,
                   color: Color.fromARGB(255, 169, 167, 167),
@@ -123,7 +124,7 @@ class _detailsPageJejumState extends State<detailsPageJejum> {
                         widthFactor: 1.0,
                         heightFactor: 1.0,
                         child: Text(
-                          'kg',
+                          'ml',
                           style: TextStyle(
                             fontSize: 18,
                             color: Color.fromARGB(255, 151, 149, 149),
@@ -179,7 +180,7 @@ class _detailsPageJejumState extends State<detailsPageJejum> {
             child: FittedBox(
               child: FloatingActionButton.extended(
                 elevation: 0,
-                onPressed: _calcularJejum,
+                onPressed: _calcularInfusion,
                 label: Text(
                   'CALCULAR',
                   style: TextStyle(fontSize: 15),

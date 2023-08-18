@@ -82,16 +82,16 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
           ),
           SizedBox(
-            height: 2,
+            height: 20,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 9),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
             child: Container(
               alignment: Alignment.bottomLeft,
               child: Text(
                 'SEXO DO PACIENTE',
                 style: TextStyle(
-                  fontSize: 13,
+                  fontSize: 14,
                   color: Color.fromARGB(255, 169, 167, 167),
                 ),
               ),
@@ -127,11 +127,31 @@ class _DetailsPageState extends State<DetailsPage> {
               sexo = index;
             },
           ),
-          SizedBox(
-            height: 10,
+          SizedBox(height: 15),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'PESO',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Color.fromARGB(255, 169, 167, 167),
+                  ),
+                ),
+              ),
+              SizedBox(width: 140),
+              Text(
+                'ALTURA',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color.fromARGB(255, 169, 167, 167),
+                ),
+              ),
+            ],
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 2),
             child: Row(
               children: [
                 Expanded(
@@ -145,7 +165,6 @@ class _DetailsPageState extends State<DetailsPage> {
                         ),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      labelText: 'PESO',
                       suffixIcon: Align(
                         widthFactor: 1.0,
                         heightFactor: 1.0,
@@ -177,7 +196,6 @@ class _DetailsPageState extends State<DetailsPage> {
                         ),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      labelText: 'ALTURA',
                       suffixIcon: Align(
                         widthFactor: 1.0,
                         heightFactor: 1.0,

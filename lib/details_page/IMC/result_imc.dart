@@ -142,8 +142,8 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
           Padding(
             padding: const EdgeInsets.all(19.0),
             child: Container(
-              height: 265,
-              width: 300,
+              height: 260,
+              width: 350,
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 233, 235, 240),
                 borderRadius: BorderRadius.all(
