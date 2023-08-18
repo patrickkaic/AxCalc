@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class detailsPageInf extends StatefulWidget {
-  const detailsPageInf({super.key});
+class detailsPageJejum extends StatefulWidget {
+  const detailsPageJejum({super.key});
 
   @override
-  State<detailsPageInf> createState() => _detailsPageInfState();
+  State<detailsPageJejum> createState() => _detailsPageJejumState();
 }
 
-class _detailsPageInfState extends State<detailsPageInf> {
+class _detailsPageJejumState extends State<detailsPageJejum> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

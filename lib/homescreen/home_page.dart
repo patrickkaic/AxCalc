@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: 'Buscar cálculo',
                 filled: true,
-                fillColor: Color.fromARGB(82, 181, 180, 180),
+                fillColor: Color.fromARGB(35, 88, 89, 92),
                 suffixIcon: IconButton(
                   icon: Icon(Icons.clear),
                   onPressed: () => _searchController.clear(),
@@ -82,9 +82,9 @@ class HomePage extends StatelessWidget {
             },
           ),
           MyCards(
-            text: 'Taxa de Infusão em ml/h',
+            text: 'Reposição de Jejum',
             onTap: () {
-              GoRouter.of(context).push('/detalhesinf');
+              GoRouter.of(context).push('/detalhesjejum');
             },
           ),
         ],
