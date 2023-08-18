@@ -45,11 +45,11 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
         children: [
           Container(
-            constraints: BoxConstraints(maxHeight: 85),
-            padding: const EdgeInsets.symmetric(vertical: 20),
+            constraints: BoxConstraints(maxHeight: 63),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
