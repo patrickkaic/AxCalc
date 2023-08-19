@@ -93,6 +93,11 @@ class HomePage extends StatelessWidget {
               GoRouter.of(context).push('/detalhesinf');
             },
           ),
+          MyCards(
+              text: 'Conversor de Soluções',
+              onTap: () {
+                GoRouter.of(context).push('/detalhessol');
+              })
         ],
       ),
     );
