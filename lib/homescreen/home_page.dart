@@ -27,23 +27,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.white,
-        destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.home_filled),
-            label: "",
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.star),
-            label: "",
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.settings),
-            label: "",
-          ),
-        ],
-      ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
         children: [
