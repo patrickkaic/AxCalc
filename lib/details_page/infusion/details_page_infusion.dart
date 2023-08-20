@@ -44,22 +44,6 @@ class _detailsPageInfusionState extends State<detailsPageInfusion> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.star_border_outlined,
-                color: Color.fromARGB(255, 169, 167, 167),
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.info_outline_rounded,
-                color: Color.fromARGB(255, 169, 167, 167),
-              ),
-            ),
-          ],
         ),
       ),
       body: Column(

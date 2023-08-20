@@ -5,7 +5,8 @@ import 'package:go_router/go_router.dart';
 
 class ResultadoSolutions extends StatefulWidget {
   final double solucao;
-  const ResultadoSolutions(this.solucao, {super.key});
+  final double input;
+  const ResultadoSolutions(this.solucao, this.input, {super.key});
   @override
   State<ResultadoSolutions> createState() => _ResultadoSolutionsState();
 }
@@ -14,8 +15,12 @@ class _ResultadoSolutionsState extends State<ResultadoSolutions> {
   _calcularSolucao() {
     double solucao = widget.solucao * 10;
     double result = solucao;
-
     return '${result.toStringAsFixed(2)} mg/ml';
+  }
+
+  _showValue() {
+    double input = widget.input;
+    return 'Concentração em solução: $input %';
   }
 
   @override
@@ -36,22 +41,6 @@ class _ResultadoSolutionsState extends State<ResultadoSolutions> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.star_border_outlined,
-                color: Color.fromARGB(255, 169, 167, 167),
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.info_outline_rounded,
-                color: Color.fromARGB(255, 169, 167, 167),
-              ),
-            ),
-          ],
         ),
       ),
       body: Column(
@@ -149,6 +138,31 @@ class _ResultadoSolutionsState extends State<ResultadoSolutions> {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'ENTRADAS',
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 169, 167, 167),
+                        fontSize: 15),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    _showValue(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
