@@ -18,10 +18,13 @@ class _detailsPageInfusionState extends State<detailsPageInfusion> {
   _calcularInfusion() {
     double volumes = double.parse(inputController1.text);
     double horas = double.parse(inputController2.text);
+    double inputVolume = volumes;
+    double inputHoras = horas;
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResultadoTaxa(volumes, horas),
+        builder: (context) =>
+            ResultadoTaxa(volumes, horas, inputVolume, inputHoras),
       ),
     );
   }

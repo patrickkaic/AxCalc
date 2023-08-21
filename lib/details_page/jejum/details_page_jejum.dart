@@ -17,10 +17,12 @@ class _detailsPageJejumState extends State<detailsPageJejum> {
   _calcularJejum() {
     double peso = double.parse(inputController1.text);
     double horas = double.parse(inputController2.text);
+    double inputP = peso;
+    double inputH = horas;
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResultadoJejum(peso, horas),
+        builder: (context) => ResultadoJejum(peso, horas, inputP, inputH),
       ),
     );
   }

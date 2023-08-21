@@ -6,7 +6,11 @@ import 'package:go_router/go_router.dart';
 class ResultadoTaxa extends StatefulWidget {
   final double volume;
   final double horas;
-  const ResultadoTaxa(this.volume, this.horas, {super.key});
+  final double inputVolume;
+  final double inputHoras;
+  const ResultadoTaxa(
+      this.volume, this.horas, this.inputVolume, this.inputHoras,
+      {super.key});
   @override
   State<ResultadoTaxa> createState() => _ResultadoTaxaState();
 }
@@ -18,6 +22,16 @@ class _ResultadoTaxaState extends State<ResultadoTaxa> {
     double taxa = volume / horas;
 
     return '${taxa.toStringAsFixed(2)} ml/h';
+  }
+
+  _showValue() {
+    double volume = widget.inputVolume;
+    return 'Volume: ${volume}ml';
+  }
+
+  _showValue2() {
+    double horas = widget.inputHoras;
+    return 'Tempo Total de Infusão ${horas}h';
   }
 
   @override
@@ -135,6 +149,40 @@ class _ResultadoTaxaState extends State<ResultadoTaxa> {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'ENTRADAS',
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 169, 167, 167),
+                        fontSize: 15),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    _showValue(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    _showValue2(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
