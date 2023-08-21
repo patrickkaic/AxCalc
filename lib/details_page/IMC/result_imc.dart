@@ -7,7 +7,11 @@ class ResultadoScreen extends StatefulWidget {
   final double peso;
   final double altura;
   final int sexo;
-  const ResultadoScreen(this.peso, this.altura, this.sexo, {super.key});
+  final double inputPeso;
+  final double inputAltura;
+  const ResultadoScreen(
+      this.peso, this.altura, this.sexo, this.inputPeso, this.inputAltura,
+      {super.key});
   @override
   State<ResultadoScreen> createState() => _ResultadoScreenState();
 }
@@ -83,6 +87,27 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
         break;
     }
     return '${pesoIdealCorrigido.toString()} kg';
+  }
+
+  _showValue() {
+    int sexo = widget.sexo;
+
+    switch (sexo) {
+      case 0:
+        return 'Sexo do Paciente: Masculino';
+      case 1:
+        return 'Sexo do Paciente: Feminino';
+    }
+  }
+
+  _showValue2() {
+    double peso = widget.inputPeso;
+    return 'Peso: ${peso}kg';
+  }
+
+  _showValue3() {
+    double altura = widget.inputAltura * 100;
+    return 'Altura: ${altura}cm';
   }
 
   @override
@@ -262,6 +287,49 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'ENTRADAS',
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 169, 167, 167),
+                        fontSize: 15),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    _showValue(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    _showValue2(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    _showValue3(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );

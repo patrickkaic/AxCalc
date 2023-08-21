@@ -19,10 +19,14 @@ class _DetailsPageState extends State<DetailsPage> {
   _calcularIMC() {
     double peso = double.parse(inputController1.text);
     double altura = double.parse(inputController2.text) / 100;
+    double inputPeso = peso;
+    double inputAltura = altura;
+
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResultadoScreen(peso, altura, sexo),
+        builder: (context) =>
+            ResultadoScreen(peso, altura, sexo, inputPeso, inputAltura),
       ),
     );
   }
