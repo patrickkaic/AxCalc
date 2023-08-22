@@ -39,7 +39,6 @@ dependencies:
   bottom_navy_bar: ^6.0.0
   toggle_switch: ^2.1.0
   go_router: ^10.0.0
-  persistent_bottom_nav_bar: ^5.0.2
 
 dev_dependencies:
   flutter_test:
