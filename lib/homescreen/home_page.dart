@@ -77,10 +77,17 @@ class HomePage extends StatelessWidget {
             },
           ),
           MyCards(
-              text: 'Conversor de Soluções',
-              onTap: () {
-                GoRouter.of(context).push('/detalhessol');
-              })
+            text: 'Conversor de Soluções',
+            onTap: () {
+              GoRouter.of(context).push('/detalhessol');
+            },
+          ),
+          MyCards(
+            text: 'Conversor de unidades',
+            onTap: () {
+              GoRouter.of(context).push('/detalhesunit');
+            },
+          ),
         ],
       ),
     );
