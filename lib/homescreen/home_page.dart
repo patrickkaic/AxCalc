@@ -83,9 +83,9 @@ class HomePage extends StatelessWidget {
             },
           ),
           MyCards(
-            text: 'Conversor de unidades',
+            text: 'Reposição Volêminca',
             onTap: () {
-              GoRouter.of(context).push('/detalhesunit');
+              GoRouter.of(context).push('/detalhesreplace');
             },
           ),
         ],

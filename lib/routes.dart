@@ -1,8 +1,9 @@
 import 'package:axcalc/details_page/IMC/details_page_imc.dart';
 import 'package:axcalc/details_page/infusion/details_page_infusion.dart';
 import 'package:axcalc/details_page/jejum/details_page_jejum.dart';
+import 'package:axcalc/details_page/replacement/details_page_replacement.dart';
 import 'package:axcalc/details_page/solutions/details_page_solutions.dart';
-import 'package:axcalc/details_page/unit/details_page_unit.dart';
+
 import 'package:axcalc/intro_screen/intro_screen.dart';
 import 'package:axcalc/homescreen/home_page.dart';
 import 'package:flutter/material.dart';
@@ -56,9 +57,9 @@ List<GoRoute> appRotes = [
     },
   ),
   GoRoute(
-    path: '/detalhesunit',
+    path: '/detalhesreplace',
     builder: (context, state) {
-      return const detailsPageUnit();
+      return const detailsPageReplacement();
     },
   ),
 ];
