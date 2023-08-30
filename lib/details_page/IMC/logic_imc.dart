@@ -17,3 +17,17 @@ String results(double imc) {
   }
   return "Obesidade";
 }
+
+String calcularPI(int sexo, double altura) {
+  double? pesoIdeal;
+
+  switch (sexo) {
+    case 0:
+      pesoIdeal = (altura * 100) - 100;
+      break;
+    case 1:
+      pesoIdeal = (altura * 100) - 105;
+      break;
+  }
+  return '${pesoIdeal.toString()} kg';
+}
