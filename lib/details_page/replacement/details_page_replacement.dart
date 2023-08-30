@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 
 class detailsPageReplacement extends StatefulWidget {
-  const detailsPageReplacement({super.key});
-
+  detailsPageReplacement({Key? key, this.dropDownValue}) : super(key: key);
+  String? dropDownValue = 'Miníma';
   @override
   State<detailsPageReplacement> createState() => _detailsPageReplacementState();
 }
@@ -22,7 +22,6 @@ class _detailsPageReplacementState extends State<detailsPageReplacement> {
 
   @override
   Widget build(BuildContext context) {
-    String dropDownValue = options.first;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(40.0),
@@ -88,8 +87,8 @@ class _detailsPageReplacementState extends State<detailsPageReplacement> {
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 3),
             child: Row(
               children: [
-                DropdownButton(
-                  value: dropDownValue,
+                DropdownButton<String>(
+                  value: widget.dropDownValue,
                   icon: Icon(Icons.keyboard_arrow_down),
                   elevation: 0,
                   style: TextStyle(color: Colors.black),
@@ -97,13 +96,14 @@ class _detailsPageReplacementState extends State<detailsPageReplacement> {
                     height: 2,
                     color: Colors.blue,
                   ),
-                  onChanged: (newValue) {
+                  onChanged: (String? newValue) {
                     setState(() {
-                      dropDownValue = newValue as String;
+                      print(newValue);
+                      widget.dropDownValue = newValue ?? options.last;
                     });
                   },
-                  items: options.map((value) {
-                    return DropdownMenuItem(
+                  items: options.map<DropdownMenuItem<String>>((value) {
+                    return DropdownMenuItem<String>(
                       child: Text(value),
                       value: value,
                     );

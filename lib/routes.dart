@@ -59,7 +59,7 @@ List<GoRoute> appRotes = [
   GoRoute(
     path: '/detalhesreplace',
     builder: (context, state) {
-      return const detailsPageReplacement();
+      return detailsPageReplacement();
     },
   ),
 ];
