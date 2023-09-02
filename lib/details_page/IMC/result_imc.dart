@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:axcalc/details_page/IMC/logic_imc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,33 +18,9 @@ class ResultadoScreen extends StatefulWidget {
 }
 
 class _ResultadoScreenState extends State<ResultadoScreen> {
-  _calcularIMC() {
-    double peso = widget.peso;
-    double altura = widget.altura;
-    double imc = peso / (altura * altura);
-
-    return imc.toStringAsFixed(2);
-  }
-
-  _results() {
-    double resultadoIMC = double.parse(_calcularIMC());
-
-    if (resultadoIMC < 18.5) {
-      return "Abaixo do peso";
-    }
-    if (resultadoIMC < 24.9) {
-      return "Normal";
-    }
-    if (resultadoIMC < 29.9) {
-      return "Sobrepeso";
-    }
-    return "Obesidade";
-  }
-
-  _textColor() {
-    final imc = double.parse(_calcularIMC());
+  _textColor(double imc) {
     if (imc < 18.5) {
-      return Colors.red; // Defina a cor desejada para cada resultado
+      return Colors.red;
     } else if (imc < 24.9) {
       return Colors.green;
     } else if (imc < 29.9) {
@@ -53,65 +30,9 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
     }
   }
 
-  _calcularPI() {
-    int sexo = widget.sexo;
-    double altura = widget.altura;
-    double? pesoIdeal;
-
-    switch (sexo) {
-      case 0:
-        pesoIdeal = (altura * 100) - 100;
-        break;
-      case 1:
-        pesoIdeal = (altura * 100) - 105;
-        break;
-    }
-    return '${pesoIdeal.toString()} kg';
-  }
-
-  _calcularPIC() {
-    int sexo = widget.sexo;
-    double peso = widget.peso;
-    double altura = widget.altura;
-
-    double? pesoIdealCorrigido;
-
-    switch (sexo) {
-      case 0:
-        pesoIdealCorrigido =
-            ((altura * 100) - 100) + (0.4 * (peso - ((altura * 100) - 100)));
-        break;
-      case 1:
-        pesoIdealCorrigido =
-            ((altura * 100) - 105) + (0.4 * (peso - ((altura * 100) - 105)));
-        break;
-    }
-    return '${pesoIdealCorrigido.toString()} kg';
-  }
-
-  _showValue() {
-    int sexo = widget.sexo;
-
-    switch (sexo) {
-      case 0:
-        return 'Sexo do Paciente: Masculino';
-      case 1:
-        return 'Sexo do Paciente: Feminino';
-    }
-  }
-
-  _showValue2() {
-    double peso = widget.inputPeso;
-    return 'Peso: ${peso}kg';
-  }
-
-  _showValue3() {
-    double altura = widget.inputAltura * 100;
-    return 'Altura: ${altura}cm';
-  }
-
   @override
   Widget build(BuildContext context) {
+    double imc = CalculadoraIMC.calcularIMC(widget.peso, widget.altura);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(40.0),
@@ -189,10 +110,10 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              _results(),
+                              CalculadoraIMC.results(imc),
                               style: TextStyle(
                                   fontSize: 17,
-                                  color: _textColor(),
+                                  color: _textColor(imc),
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -205,7 +126,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                         const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(_calcularIMC(),
+                      child: Text(imc.toStringAsFixed(2),
                           style: TextStyle(
                               color: Colors.blue,
                               fontSize: 28,
@@ -232,7 +153,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        _calcularPI(),
+                        CalculadoraIMC.calcularPI(widget.sexo, widget.altura),
                         style: TextStyle(
                             color: Colors.blue,
                             fontSize: 28,
@@ -259,7 +180,9 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                         const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(_calcularPIC(),
+                      child: Text(
+                          CalculadoraIMC.calcularPIC(
+                              widget.sexo, widget.peso, widget.altura),
                           style: TextStyle(
                               color: Colors.blue,
                               fontSize: 28,
@@ -303,7 +226,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    _showValue(),
+                    CalculadoraIMC.showValue(widget.sexo),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -312,7 +235,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    _showValue2(),
+                    CalculadoraIMC.showValue2(widget.peso),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -321,7 +244,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    _showValue3(),
+                    CalculadoraIMC.showValue3(widget.altura),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
