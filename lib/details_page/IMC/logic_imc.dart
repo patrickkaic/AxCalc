@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class CalculadoraIMC {
   static double calcularIMC(double peso, double altura) {
     double imc = peso / (altura * altura);
@@ -62,5 +64,17 @@ class CalculadoraIMC {
   static String showValue3(double altura) {
     double alturaF = altura * 100;
     return 'Altura: ${alturaF}cm';
+  }
+
+  static Color textColor(int sexo) {
+    if (sexo < 18.5) {
+      return Colors.red;
+    } else if (sexo < 24.9) {
+      return Colors.green;
+    } else if (sexo < 29.9) {
+      return Colors.orange;
+    } else {
+      return Colors.red;
+    }
   }
 }
