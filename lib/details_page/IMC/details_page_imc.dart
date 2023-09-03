@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
+import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
 import 'package:axcalc/details_page/IMC/result_imc.dart';
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
@@ -36,42 +38,12 @@ class _DetailsPageState extends State<DetailsPage> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(40.0),
-        child: AppBar(
-          leading: BackButton(color: Colors.black),
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          elevation: 0,
-          title: Text(
-            'Cálculo',
-            style: TextStyle(
-              color: Color.fromARGB(255, 52, 63, 92),
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+        child: MyAppBar(),
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(0.0),
-            child: AppBar(
-              elevation: 0,
-              automaticallyImplyLeading: false,
-              backgroundColor: Colors.white,
-              title: Text(
-                'IMC, Peso Ideal e Peso Ideal \nCorrigido',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 52, 63, 92),
-                  fontSize: 21,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
+          MyAppCalcs(text: 'IMC, Peso Ideal e Corrigido'),
+          SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
             child: Container(

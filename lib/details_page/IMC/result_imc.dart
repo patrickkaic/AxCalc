@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
+import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
 import 'package:axcalc/details_page/IMC/logic_imc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -36,39 +38,11 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(40.0),
-        child: AppBar(
-          leading: BackButton(color: Colors.black),
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          elevation: 0,
-          title: Text(
-            'Cálculo',
-            style: TextStyle(
-              color: Color.fromARGB(255, 52, 63, 92),
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+        child: MyAppBar(),
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-            child: AppBar(
-              elevation: 0,
-              automaticallyImplyLeading: false,
-              backgroundColor: Colors.white,
-              title: Text(
-                'IMC, Peso Ideal e Peso Ideal \nCorrigido',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 52, 63, 92),
-                  fontSize: 21,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
+          MyAppCalcs(text: 'IMC, Peso Ideal e Corrigido'),
           Padding(
             padding: const EdgeInsets.all(19.0),
             child: Container(
