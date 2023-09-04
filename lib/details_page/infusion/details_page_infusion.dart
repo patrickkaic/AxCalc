@@ -40,7 +40,7 @@ class _detailsPageInfusionState extends State<detailsPageInfusion> {
       ),
       body: Column(
         children: [
-          MyAppCalcs(text: 'Taxa de Infusão em ml/h'),
+          MyAppBarCalcs(text: 'Taxa de Infusão em ml/h'),
           SizedBox(
             height: 2,
           ),

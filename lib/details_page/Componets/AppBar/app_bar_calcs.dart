@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class MyAppCalcs extends StatelessWidget {
-  const MyAppCalcs({required this.text, super.key});
+class MyAppBarCalcs extends StatelessWidget {
+  const MyAppBarCalcs({required this.text, super.key});
 
   final String text;
   @override

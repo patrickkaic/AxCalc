@@ -42,7 +42,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
       ),
       body: Column(
         children: [
-          MyAppCalcs(text: 'IMC, Peso Ideal e Corrigido'),
+          MyAppBarCalcs(text: 'IMC, Peso Ideal e Corrigido'),
           Padding(
             padding: const EdgeInsets.all(19.0),
             child: Container(

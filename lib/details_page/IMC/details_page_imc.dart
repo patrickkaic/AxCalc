@@ -42,7 +42,7 @@ class _DetailsPageState extends State<DetailsPage> {
       ),
       body: Column(
         children: [
-          MyAppCalcs(text: 'IMC, Peso Ideal e Corrigido'),
+          MyAppBarCalcs(text: 'IMC, Peso Ideal e Corrigido'),
           SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
