@@ -3,14 +3,14 @@
 import 'package:axcalc/details_page/solutions/result_solutions.dart';
 import 'package:flutter/material.dart';
 
-class detailsPagesSolutions extends StatefulWidget {
-  const detailsPagesSolutions({super.key});
+class DetailsPagesSolutions extends StatefulWidget {
+  const DetailsPagesSolutions({super.key});
 
   @override
-  State<detailsPagesSolutions> createState() => _detailsPagesSolutionsState();
+  State<DetailsPagesSolutions> createState() => _DetailsPagesSolutionsState();
 }
 
-class _detailsPagesSolutionsState extends State<detailsPagesSolutions> {
+class _DetailsPagesSolutionsState extends State<DetailsPagesSolutions> {
   TextEditingController inputController1 = TextEditingController();
   TextEditingController inputController2 = TextEditingController();
 

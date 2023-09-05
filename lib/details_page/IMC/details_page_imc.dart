@@ -1,8 +1,10 @@
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/details_page/Componets/TextForms/labeled_textform.dart';
+import 'package:axcalc/details_page/Componets/ToggleSwitch/toggleswitch.dart';
+import 'package:axcalc/details_page/Componets/buttons/main_button.dart';
 import 'package:axcalc/details_page/IMC/result_imc.dart';
 import 'package:flutter/material.dart';
-import 'package:toggle_switch/toggle_switch.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
@@ -31,6 +33,12 @@ class _DetailsPageState extends State<DetailsPage> {
     );
   }
 
+  _toggleSex(int? index) {
+    setState(() {
+      sexo = index ?? 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,155 +50,29 @@ class _DetailsPageState extends State<DetailsPage> {
         children: [
           const AppBarCalcs(label: 'IMC, Peso Ideal e Corrigido'),
           const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
-            child: Container(
-              alignment: Alignment.bottomLeft,
-              child: const Text(
-                'SEXO DO PACIENTE',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Color.fromARGB(255, 169, 167, 167),
-                ),
-              ),
-            ),
-          ),
-          ToggleSwitch(
-            initialLabelIndex: sexo,
-            minWidth: 180,
-            minHeight: 40,
-            cornerRadius: 90,
-            fontSize: 17,
-            activeBorders: [
-              Border.all(
-                color: const Color.fromARGB(255, 82, 139, 238),
-                width: 2.0,
-              ),
-            ],
-            activeBgColors: const [
-              [Color.fromARGB(255, 155, 201, 237)],
-              [Color.fromARGB(255, 155, 201, 237)]
-            ],
-            borderColor: const [Color.fromARGB(255, 233, 230, 230)],
-            borderWidth: 2.0,
-            activeFgColor: Colors.black,
-            inactiveBgColor: Colors.white,
-            inactiveFgColor: const Color.fromARGB(255, 146, 144, 144),
-            totalSwitches: 2,
+          ToggleSwitchs(
+            title: 'SEXO DO PACIENTE',
             labels: const ['Masculino', 'Feminino'],
-            onToggle: (index) {
-              if (index == null) {
-                return;
-              }
-              sexo = index;
-            },
+            onToggle: _toggleSex,
+            selectedIndex: sexo,
           ),
           const SizedBox(height: 15),
-          const Row(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  'PESO',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color.fromARGB(255, 169, 167, 167),
-                  ),
-                ),
+              LabeledTextForm(
+                label: 'PESO',
+                controller: inputController1,
+                suffix: 'kg',
               ),
-              SizedBox(width: 140),
-              Text(
-                'ALTURA',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Color.fromARGB(255, 169, 167, 167),
-                ),
+              LabeledTextForm(
+                label: 'ALTURA',
+                controller: inputController2,
+                suffix: 'cm',
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 2),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextFormField(
-                    controller: inputController1,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 202, 200, 200),
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      suffixIcon: const Align(
-                        widthFactor: 1.0,
-                        heightFactor: 1.0,
-                        child: Text(
-                          'kg',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color.fromARGB(255, 151, 149, 149),
-                          ),
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 202, 200, 200)),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  child: TextFormField(
-                    controller: inputController2,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 202, 200, 200),
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      suffixIcon: const Align(
-                        widthFactor: 1.0,
-                        heightFactor: 1.0,
-                        child: Text(
-                          'cm',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color.fromARGB(255, 151, 149, 149),
-                          ),
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 202, 200, 200),
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            width: 120,
-            height: 100,
-            child: FittedBox(
-              child: FloatingActionButton.extended(
-                elevation: 0,
-                onPressed: _calcularIMC,
-                label: const Text(
-                  'CALCULAR',
-                  style: TextStyle(fontSize: 15),
-                ),
-              ),
-            ),
-          ),
+          MainButton(text: 'CALCULAR', onPressed: _calcularIMC)
         ],
       ),
     );

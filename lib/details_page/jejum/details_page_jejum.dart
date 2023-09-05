@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
 import 'package:axcalc/details_page/Componets/TextForms/labeled_textform.dart';
@@ -7,14 +5,14 @@ import 'package:axcalc/details_page/Componets/buttons/main_button.dart';
 import 'package:axcalc/details_page/jejum/result_jejum.dart';
 import 'package:flutter/material.dart';
 
-class detailsPageJejum extends StatefulWidget {
-  const detailsPageJejum({super.key});
+class DetailsPageJejum extends StatefulWidget {
+  const DetailsPageJejum({super.key});
 
   @override
-  State<detailsPageJejum> createState() => _detailsPageJejumState();
+  State<DetailsPageJejum> createState() => _DetailsPageJejumState();
 }
 
-class _detailsPageJejumState extends State<detailsPageJejum> {
+class _DetailsPageJejumState extends State<DetailsPageJejum> {
   TextEditingController inputController1 = TextEditingController();
   TextEditingController inputController2 = TextEditingController();
 
@@ -34,14 +32,14 @@ class _detailsPageJejumState extends State<detailsPageJejum> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(40.0),
         child: MyAppBar(),
       ),
       body: Column(
         children: [
-          AppBarCalcs(label: 'Reposição de Jejum'),
-          SizedBox(
+          const AppBarCalcs(label: 'Reposição de Jejum'),
+          const SizedBox(
             height: 20,
           ),
           Row(

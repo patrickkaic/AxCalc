@@ -41,7 +41,7 @@ List<GoRoute> appRotes = [
   GoRoute(
     path: '/detalhesjejum',
     builder: (context, state) {
-      return const detailsPageJejum();
+      return const DetailsPageJejum();
     },
   ),
   GoRoute(
@@ -53,7 +53,7 @@ List<GoRoute> appRotes = [
   GoRoute(
     path: '/detalhessol',
     builder: (context, state) {
-      return const detailsPagesSolutions();
+      return const DetailsPagesSolutions();
     },
   ),
   GoRoute(

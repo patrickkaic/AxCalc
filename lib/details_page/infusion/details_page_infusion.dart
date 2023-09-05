@@ -1,7 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/details_page/Componets/TextForms/labeled_textform.dart';
+import 'package:axcalc/details_page/Componets/buttons/main_button.dart';
 import 'package:axcalc/details_page/infusion/result_infusion.dart';
 
 import 'package:flutter/material.dart';
@@ -34,121 +34,28 @@ class _DetailsPageInfusionState extends State<DetailsPageInfusion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(40.0),
         child: MyAppBar(),
       ),
       body: Column(
         children: [
-          AppBarCalcs(label: 'Taxa de Infusão em ml/h'),
-          SizedBox(
-            height: 2,
+          const AppBarCalcs(label: 'Taxa de Infusão em ml/h'),
+          const SizedBox(
+            height: 20,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  'VOLUME',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color.fromARGB(255, 169, 167, 167),
-                  ),
-                ),
-              ),
-              SizedBox(width: 115),
-              Text(
-                'TEMPO DE INFUSÃO',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Color.fromARGB(255, 169, 167, 167),
-                ),
-              ),
+              LabeledTextForm(
+                  label: 'VOLUME', controller: inputController1, suffix: 'ml'),
+              LabeledTextForm(
+                  label: 'TEMPO DE INFUSÃO',
+                  controller: inputController2,
+                  suffix: 'h'),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 3),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextFormField(
-                    controller: inputController1,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color.fromARGB(255, 202, 200, 200),
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      suffixIcon: Align(
-                        widthFactor: 1.0,
-                        heightFactor: 1.0,
-                        child: Text(
-                          'ml',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color.fromARGB(255, 151, 149, 149),
-                          ),
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Color.fromARGB(255, 202, 200, 200)),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                Expanded(
-                  child: TextFormField(
-                    controller: inputController2,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color.fromARGB(255, 202, 200, 200),
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      suffixIcon: Align(
-                        widthFactor: 1.0,
-                        heightFactor: 1.0,
-                        child: Text(
-                          'h',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color.fromARGB(255, 151, 149, 149),
-                          ),
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: const Color.fromARGB(255, 202, 200, 200),
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            width: 120,
-            height: 100,
-            child: FittedBox(
-              child: FloatingActionButton.extended(
-                elevation: 0,
-                onPressed: _calcularInfusion,
-                label: Text(
-                  'CALCULAR',
-                  style: TextStyle(fontSize: 15),
-                ),
-              ),
-            ),
-          ),
+          MainButton(text: 'CALCULAR', onPressed: _calcularInfusion),
         ],
       ),
     );
