@@ -47,7 +47,7 @@ List<GoRoute> appRotes = [
   GoRoute(
     path: '/detalhesinf',
     builder: (context, state) {
-      return const detailsPageInfusion();
+      return const DetailsPageInfusion();
     },
   ),
   GoRoute(

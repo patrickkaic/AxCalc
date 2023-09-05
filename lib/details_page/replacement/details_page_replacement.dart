@@ -31,7 +31,7 @@ class _detailsPageReplacementState extends State<detailsPageReplacement> {
       ),
       body: Column(
         children: [
-          MyAppBarCalcs(text: 'Reposição Volêminca'),
+          AppBarCalcs(label: 'Reposição Volêminca'),
           SizedBox(
             height: 2,
           ),

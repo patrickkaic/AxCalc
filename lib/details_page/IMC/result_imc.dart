@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
 import 'package:axcalc/details_page/IMC/logic_imc.dart';
@@ -20,35 +18,23 @@ class ResultadoScreen extends StatefulWidget {
 }
 
 class _ResultadoScreenState extends State<ResultadoScreen> {
-  _textColor(double imc) {
-    if (imc < 18.5) {
-      return Colors.red;
-    } else if (imc < 24.9) {
-      return Colors.green;
-    } else if (imc < 29.9) {
-      return Colors.orange;
-    } else {
-      return Colors.red;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     double imc = CalculadoraIMC.calcularIMC(widget.peso, widget.altura);
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(40.0),
         child: MyAppBar(),
       ),
       body: Column(
         children: [
-          MyAppBarCalcs(text: 'IMC, Peso Ideal e Corrigido'),
+          const AppBarCalcs(label: 'IMC, Peso Ideal e Corrigido'),
           Padding(
             padding: const EdgeInsets.all(19.0),
             child: Container(
               height: 260,
               width: 350,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 233, 235, 240),
                 borderRadius: BorderRadius.all(
                   Radius.circular(15),
@@ -56,9 +42,8 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
               ),
               child: Column(
                 children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -74,7 +59,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 18),
                     child: Row(
                       children: [
-                        Text(
+                        const Text(
                           'IMC',
                           style: TextStyle(fontSize: 17),
                         ),
@@ -87,7 +72,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                               CalculadoraIMC.results(imc),
                               style: TextStyle(
                                   fontSize: 17,
-                                  color: _textColor(imc),
+                                  color: CalculadoraIMC.textColor(imc),
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -101,18 +86,17 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(imc.toStringAsFixed(2),
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.blue,
                               fontSize: 28,
                               fontWeight: FontWeight.bold)),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -128,19 +112,18 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         CalculadoraIMC.calcularPI(widget.sexo, widget.altura),
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.blue,
                             fontSize: 28,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -157,7 +140,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                       child: Text(
                           CalculadoraIMC.calcularPIC(
                               widget.sexo, widget.peso, widget.altura),
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.blue,
                               fontSize: 28,
                               fontWeight: FontWeight.bold)),
@@ -172,12 +155,12 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
             height: 100,
             child: FittedBox(
               child: FloatingActionButton.extended(
-                backgroundColor: Color.fromARGB(80, 70, 142, 247),
+                backgroundColor: const Color.fromARGB(80, 70, 142, 247),
                 elevation: 0,
                 onPressed: () {
                   GoRouter.of(context).pop();
                 },
-                label: Text(
+                label: const Text(
                   'REINICIAR',
                   style: TextStyle(fontSize: 15, color: Colors.blue),
                 ),
@@ -188,7 +171,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               children: [
-                Align(
+                const Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
                     'ENTRADAS',
@@ -201,7 +184,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                   alignment: Alignment.bottomLeft,
                   child: Text(
                     CalculadoraIMC.showValue(widget.sexo),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -210,7 +193,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                   alignment: Alignment.bottomLeft,
                   child: Text(
                     CalculadoraIMC.showValue2(widget.peso),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -219,7 +202,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                   alignment: Alignment.bottomLeft,
                   child: Text(
                     CalculadoraIMC.showValue3(widget.altura),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),

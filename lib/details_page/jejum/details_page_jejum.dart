@@ -2,6 +2,8 @@
 
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/details_page/Componets/TextForms/labeled_textform.dart';
+import 'package:axcalc/details_page/Componets/buttons/main_button.dart';
 import 'package:axcalc/details_page/jejum/result_jejum.dart';
 import 'package:flutter/material.dart';
 
@@ -38,114 +40,26 @@ class _detailsPageJejumState extends State<detailsPageJejum> {
       ),
       body: Column(
         children: [
-          MyAppBarCalcs(text: 'Reposição de Jejum'),
+          AppBarCalcs(label: 'Reposição de Jejum'),
+          SizedBox(
+            height: 20,
+          ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      'PESO',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 169, 167, 167),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 150,
-                    child: TextFormField(
-                      controller: inputController1,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 202, 200, 200),
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        suffixIcon: Align(
-                          widthFactor: 1.0,
-                          heightFactor: 1.0,
-                          child: Text(
-                            'kg',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Color.fromARGB(255, 151, 149, 149),
-                            ),
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 202, 200, 200)),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              LabeledTextForm(
+                label: 'PESO',
+                controller: inputController1,
+                suffix: 'kg',
               ),
-              Column(
-                children: [
-                  Text(
-                    'TEMPO DE JEJUM',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color.fromARGB(255, 169, 167, 167),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 150,
-                    child: TextFormField(
-                      controller: inputController2,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color.fromARGB(255, 202, 200, 200),
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        suffixIcon: Align(
-                          widthFactor: 1.0,
-                          heightFactor: 1.0,
-                          child: Text(
-                            'h',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Color.fromARGB(255, 151, 149, 149),
-                            ),
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: const Color.fromARGB(255, 202, 200, 200),
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              LabeledTextForm(
+                label: 'TEMPO DE JEJUM',
+                controller: inputController2,
+                suffix: 'h',
               )
             ],
           ),
-          SizedBox(
-            width: 120,
-            height: 100,
-            child: FittedBox(
-              child: FloatingActionButton.extended(
-                elevation: 0,
-                onPressed: _calcularJejum,
-                label: Text(
-                  'CALCULAR',
-                  style: TextStyle(fontSize: 15),
-                ),
-              ),
-            ),
-          ),
+          MainButton(text: 'CALCULAR', onPressed: _calcularJejum),
         ],
       ),
     );

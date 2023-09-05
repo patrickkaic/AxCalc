@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget {
@@ -8,11 +6,11 @@ class MyAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(color: Colors.black),
+        leading: const BackButton(color: Colors.black),
         backgroundColor: Colors.white,
         centerTitle: true,
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Cálculo',
           style: TextStyle(
             color: Color.fromARGB(255, 52, 63, 92),

@@ -45,7 +45,7 @@ class _ResultadoTaxaState extends State<ResultadoTaxa> {
       ),
       body: Column(
         children: [
-          MyAppBarCalcs(text: 'Taxa de Infusão em ml/h'),
+          AppBarCalcs(label: 'Taxa de Infusão em ml/h'),
           Padding(
             padding: const EdgeInsets.all(19.0),
             child: Container(

@@ -6,14 +6,14 @@ import 'package:axcalc/details_page/infusion/result_infusion.dart';
 
 import 'package:flutter/material.dart';
 
-class detailsPageInfusion extends StatefulWidget {
-  const detailsPageInfusion({super.key});
+class DetailsPageInfusion extends StatefulWidget {
+  const DetailsPageInfusion({super.key});
 
   @override
-  State<detailsPageInfusion> createState() => _detailsPageInfusionState();
+  State<DetailsPageInfusion> createState() => _DetailsPageInfusionState();
 }
 
-class _detailsPageInfusionState extends State<detailsPageInfusion> {
+class _DetailsPageInfusionState extends State<DetailsPageInfusion> {
   TextEditingController inputController1 = TextEditingController();
   TextEditingController inputController2 = TextEditingController();
 
@@ -40,7 +40,7 @@ class _detailsPageInfusionState extends State<detailsPageInfusion> {
       ),
       body: Column(
         children: [
-          MyAppBarCalcs(text: 'Taxa de Infusão em ml/h'),
+          AppBarCalcs(label: 'Taxa de Infusão em ml/h'),
           SizedBox(
             height: 2,
           ),

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
 import 'package:axcalc/details_page/IMC/result_imc.dart';
@@ -36,19 +34,19 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(40.0),
         child: MyAppBar(),
       ),
       body: Column(
         children: [
-          MyAppBarCalcs(text: 'IMC, Peso Ideal e Corrigido'),
-          SizedBox(height: 20),
+          const AppBarCalcs(label: 'IMC, Peso Ideal e Corrigido'),
+          const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
             child: Container(
               alignment: Alignment.bottomLeft,
-              child: Text(
+              child: const Text(
                 'SEXO DO PACIENTE',
                 style: TextStyle(
                   fontSize: 14,
@@ -65,21 +63,21 @@ class _DetailsPageState extends State<DetailsPage> {
             fontSize: 17,
             activeBorders: [
               Border.all(
-                color: Color.fromARGB(255, 82, 139, 238),
+                color: const Color.fromARGB(255, 82, 139, 238),
                 width: 2.0,
               ),
             ],
-            activeBgColors: [
+            activeBgColors: const [
               [Color.fromARGB(255, 155, 201, 237)],
               [Color.fromARGB(255, 155, 201, 237)]
             ],
-            borderColor: [Color.fromARGB(255, 233, 230, 230)],
+            borderColor: const [Color.fromARGB(255, 233, 230, 230)],
             borderWidth: 2.0,
             activeFgColor: Colors.black,
             inactiveBgColor: Colors.white,
-            inactiveFgColor: Color.fromARGB(255, 146, 144, 144),
+            inactiveFgColor: const Color.fromARGB(255, 146, 144, 144),
             totalSwitches: 2,
-            labels: ['Masculino', 'Feminino'],
+            labels: const ['Masculino', 'Feminino'],
             onToggle: (index) {
               if (index == null) {
                 return;
@@ -87,11 +85,11 @@ class _DetailsPageState extends State<DetailsPage> {
               sexo = index;
             },
           ),
-          SizedBox(height: 15),
-          Row(
+          const SizedBox(height: 15),
+          const Row(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   'PESO',
                   style: TextStyle(
@@ -120,12 +118,12 @@ class _DetailsPageState extends State<DetailsPage> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color.fromARGB(255, 202, 200, 200),
                         ),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      suffixIcon: Align(
+                      suffixIcon: const Align(
                         widthFactor: 1.0,
                         heightFactor: 1.0,
                         child: Text(
@@ -137,26 +135,26 @@ class _DetailsPageState extends State<DetailsPage> {
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromARGB(255, 202, 200, 200)),
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Expanded(
                   child: TextFormField(
                     controller: inputController2,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color.fromARGB(255, 202, 200, 200),
                         ),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      suffixIcon: Align(
+                      suffixIcon: const Align(
                         widthFactor: 1.0,
                         heightFactor: 1.0,
                         child: Text(
@@ -168,8 +166,8 @@ class _DetailsPageState extends State<DetailsPage> {
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: const Color.fromARGB(255, 202, 200, 200),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 202, 200, 200),
                         ),
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -186,7 +184,7 @@ class _DetailsPageState extends State<DetailsPage> {
               child: FloatingActionButton.extended(
                 elevation: 0,
                 onPressed: _calcularIMC,
-                label: Text(
+                label: const Text(
                   'CALCULAR',
                   style: TextStyle(fontSize: 15),
                 ),

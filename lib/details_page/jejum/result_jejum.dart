@@ -54,7 +54,7 @@ class _ResultadoJejumState extends State<ResultadoJejum> {
       ),
       body: Column(
         children: [
-          MyAppBarCalcs(text: 'Reposição de Jejum'),
+          AppBarCalcs(label: 'Reposição de Jejum'),
           Padding(
             padding: const EdgeInsets.all(19.0),
             child: Container(

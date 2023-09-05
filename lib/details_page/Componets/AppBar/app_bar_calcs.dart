@@ -1,11 +1,9 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
-class MyAppBarCalcs extends StatelessWidget {
-  const MyAppBarCalcs({required this.text, super.key});
+class AppBarCalcs extends StatelessWidget {
+  const AppBarCalcs({required this.label, super.key});
 
-  final String text;
+  final String label;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -13,8 +11,8 @@ class MyAppBarCalcs extends StatelessWidget {
       automaticallyImplyLeading: false,
       backgroundColor: Colors.white,
       title: Text(
-        text,
-        style: TextStyle(
+        label,
+        style: const TextStyle(
           color: Color.fromARGB(255, 52, 63, 92),
           fontSize: 21,
           fontWeight: FontWeight.bold,

@@ -66,12 +66,12 @@ class CalculadoraIMC {
     return 'Altura: ${alturaF}cm';
   }
 
-  static Color textColor(int sexo) {
-    if (sexo < 18.5) {
+  static Color textColor(double imc) {
+    if (imc < 18.5) {
       return Colors.red;
-    } else if (sexo < 24.9) {
+    } else if (imc < 24.9) {
       return Colors.green;
-    } else if (sexo < 29.9) {
+    } else if (imc < 29.9) {
       return Colors.orange;
     } else {
       return Colors.red;
