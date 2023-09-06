@@ -39,9 +39,7 @@ class _DetailsPageJejumState extends State<DetailsPageJejum> {
       body: Column(
         children: [
           const AppBarCalcs(label: 'Reposição de Jejum'),
-          const SizedBox(
-            height: 20,
-          ),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -51,10 +49,9 @@ class _DetailsPageJejumState extends State<DetailsPageJejum> {
                 suffix: 'kg',
               ),
               LabeledTextForm(
-                label: 'TEMPO DE JEJUM',
-                controller: inputController2,
-                suffix: 'h',
-              )
+                  label: 'TEMPO DE JEJUM',
+                  controller: inputController2,
+                  suffix: 'h')
             ],
           ),
           MainButton(text: 'CALCULAR', onPressed: _calcularJejum),

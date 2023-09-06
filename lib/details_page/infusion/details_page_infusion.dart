@@ -41,14 +41,15 @@ class _DetailsPageInfusionState extends State<DetailsPageInfusion> {
       body: Column(
         children: [
           const AppBarCalcs(label: 'Taxa de Infusão em ml/h'),
-          const SizedBox(
-            height: 20,
-          ),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               LabeledTextForm(
-                  label: 'VOLUME', controller: inputController1, suffix: 'ml'),
+                label: 'VOLUME',
+                controller: inputController1,
+                suffix: 'ml',
+              ),
               LabeledTextForm(
                   label: 'TEMPO DE INFUSÃO',
                   controller: inputController2,

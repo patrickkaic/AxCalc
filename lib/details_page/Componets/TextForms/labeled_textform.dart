@@ -4,10 +4,12 @@ class LabeledTextForm extends StatelessWidget {
   const LabeledTextForm(
       {super.key,
       required this.label,
+      this.sizedBoxwidth,
       required this.controller,
       required this.suffix});
 
   final String label;
+  final double? sizedBoxwidth;
   final TextEditingController controller;
   final String suffix;
 
@@ -20,7 +22,7 @@ class LabeledTextForm extends StatelessWidget {
             style: const TextStyle(
                 fontSize: 14, color: Color.fromARGB(255, 169, 167, 167))),
         SizedBox(
-          width: 170,
+          width: sizedBoxwidth ?? 170,
           child: TextFormField(
             controller: controller,
             keyboardType: TextInputType.number,

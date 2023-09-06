@@ -82,12 +82,6 @@ class HomePage extends StatelessWidget {
               GoRouter.of(context).push('/detalhessol');
             },
           ),
-          MyCards(
-            text: 'Reposição Volêminca',
-            onTap: () {
-              GoRouter.of(context).push('/detalhesreplace');
-            },
-          ),
         ],
       ),
     );
