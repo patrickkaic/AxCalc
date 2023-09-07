@@ -1,5 +1,7 @@
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/details_page/Componets/buttons/restart_button.dart';
+import 'package:axcalc/details_page/Componets/value_screen/user_input.dart';
 import 'package:axcalc/details_page/IMC/logic_imc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -85,11 +87,13 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                         const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(imc.toStringAsFixed(2),
-                          style: const TextStyle(
-                              color: Colors.blue,
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold)),
+                      child: Text(
+                        imc.toStringAsFixed(2),
+                        style: const TextStyle(
+                            color: Colors.blue,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -150,66 +154,13 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
               ),
             ),
           ),
-          SizedBox(
-            width: 120,
-            height: 100,
-            child: FittedBox(
-              child: FloatingActionButton.extended(
-                backgroundColor: const Color.fromARGB(80, 70, 142, 247),
-                elevation: 0,
-                onPressed: () {
-                  GoRouter.of(context).pop();
-                },
-                label: const Text(
-                  'REINICIAR',
-                  style: TextStyle(fontSize: 15, color: Colors.blue),
-                ),
-              ),
-            ),
+          RestartButton(
+              text: 'REINICAR', onPressed: () => GoRouter.of(context).pop()),
+          InputUser(
+            text1: CalculadoraIMC.showValue(widget.sexo),
+            text2: CalculadoraIMC.showValue2(widget.peso),
+            text3: CalculadoraIMC.showValue3(widget.altura),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              children: [
-                const Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    'ENTRADAS',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 169, 167, 167),
-                        fontSize: 15),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    CalculadoraIMC.showValue(widget.sexo),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    CalculadoraIMC.showValue2(widget.peso),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    CalculadoraIMC.showValue3(widget.altura),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          )
         ],
       ),
     );

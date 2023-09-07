@@ -2,6 +2,8 @@
 
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/details_page/Componets/buttons/restart_button.dart';
+import 'package:axcalc/details_page/Componets/value_screen/user_input.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -172,57 +174,13 @@ class _ResultadoJejumState extends State<ResultadoJejum> {
               ),
             ),
           ),
-          SizedBox(
-            width: 120,
-            height: 100,
-            child: FittedBox(
-              child: FloatingActionButton.extended(
-                backgroundColor: Color.fromARGB(80, 70, 142, 247),
-                elevation: 0,
-                onPressed: () {
-                  GoRouter.of(context).pop();
-                },
-                label: Text(
-                  'REINICIAR',
-                  style: TextStyle(fontSize: 15, color: Colors.blue),
-                ),
-              ),
-            ),
+          RestartButton(
+              text: 'REINICIAR', onPressed: () => GoRouter.of(context).pop()),
+          InputUser(
+            text1: _showValue(),
+            text2: _showValue2(),
+            text3: '',
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              children: [
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    'ENTRADAS',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 169, 167, 167),
-                        fontSize: 15),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    _showValue(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    _showValue2(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          )
         ],
       ),
     );
