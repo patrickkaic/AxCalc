@@ -1,7 +1,8 @@
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/details_page/Componets/ValueScreen/result_container.dart';
 import 'package:axcalc/details_page/Componets/buttons/restart_button.dart';
-import 'package:axcalc/details_page/Componets/value_screen/user_input.dart';
+import 'package:axcalc/details_page/Componets/ValueScreen/user_input.dart';
 import 'package:axcalc/details_page/IMC/logic_imc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -31,128 +32,16 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
       body: Column(
         children: [
           const AppBarCalcs(label: 'IMC, Peso Ideal e Corrigido'),
-          Padding(
-            padding: const EdgeInsets.all(19.0),
-            child: Container(
-              height: 260,
-              width: 350,
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 233, 235, 240),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                ),
-              ),
-              child: Column(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Resultado',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
-                    child: Row(
-                      children: [
-                        const Text(
-                          'IMC',
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 0, horizontal: 5),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              CalculadoraIMC.results(imc),
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  color: CalculadoraIMC.textColor(imc),
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        imc.toStringAsFixed(2),
-                        style: const TextStyle(
-                            color: Colors.blue,
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Peso Ideal',
-                        style: TextStyle(fontSize: 17),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        CalculadoraIMC.calcularPI(widget.sexo, widget.altura),
-                        style: const TextStyle(
-                            color: Colors.blue,
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Peso ideal corrigido',
-                        style: TextStyle(fontSize: 17),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                          CalculadoraIMC.calcularPIC(
-                              widget.sexo, widget.peso, widget.altura),
-                          style: const TextStyle(
-                              color: Colors.blue,
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          ResultContainer(
+            text1: 'IMC',
+            text2: imc.toStringAsFixed(2),
+            textSide: CalculadoraIMC.results(imc),
+            cores: CalculadoraIMC.textColor(imc),
+            text3: 'Peso ideal',
+            text4: CalculadoraIMC.calcularPI(widget.sexo, widget.altura),
+            text5: 'Peso ideal corrigido',
+            text6: CalculadoraIMC.calcularPIC(
+                widget.sexo, widget.peso, widget.altura),
           ),
           RestartButton(
               text: 'REINICAR', onPressed: () => GoRouter.of(context).pop()),

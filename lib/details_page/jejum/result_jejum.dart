@@ -2,8 +2,9 @@
 
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/details_page/Componets/ValueScreen/result_container.dart';
 import 'package:axcalc/details_page/Componets/buttons/restart_button.dart';
-import 'package:axcalc/details_page/Componets/value_screen/user_input.dart';
+import 'package:axcalc/details_page/Componets/ValueScreen/user_input.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -57,122 +58,13 @@ class _ResultadoJejumState extends State<ResultadoJejum> {
       body: Column(
         children: [
           AppBarCalcs(label: 'Reposição de Jejum'),
-          Padding(
-            padding: const EdgeInsets.all(19.0),
-            child: Container(
-              height: 260,
-              width: 350,
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 233, 235, 240),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                ),
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Resultado',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
-                    child: Row(
-                      children: [
-                        Text(
-                          'PRIMEIRA HORA',
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Color.fromARGB(255, 169, 167, 167),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(_calcularJejum(),
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'SEGUNDA HORA',
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Color.fromARGB(255, 169, 167, 167),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        _calcularJejum2(),
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'TERCERIRA HORA',
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Color.fromARGB(255, 169, 167, 167),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(_calcularJejum2(),
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          ResultContainer(
+            text1: 'PRIMEIRA HORA',
+            text2: _calcularJejum(),
+            text3: 'SEGUNDA HORA',
+            text4: _calcularJejum2(),
+            text5: 'TERCEIRA HORA',
+            text6: _calcularJejum2(),
           ),
           RestartButton(
               text: 'REINICIAR', onPressed: () => GoRouter.of(context).pop()),

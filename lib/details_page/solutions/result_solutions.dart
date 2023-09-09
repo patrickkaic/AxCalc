@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
+import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
+import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/details_page/Componets/ValueScreen/result_container.dart';
 import 'package:axcalc/details_page/Componets/buttons/restart_button.dart';
-import 'package:axcalc/details_page/Componets/value_screen/user_input.dart';
+import 'package:axcalc/details_page/Componets/ValueScreen/user_input.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -28,101 +29,14 @@ class _ResultadoSolutionsState extends State<ResultadoSolutions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(40.0),
-        child: AppBar(
-          leading: BackButton(color: Colors.black),
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          elevation: 0,
-          title: Text(
-            'Cálculo',
-            style: TextStyle(
-              color: Color.fromARGB(255, 52, 63, 92),
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+        child: MyAppBar(),
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(0.0),
-            child: AppBar(
-              elevation: 0,
-              automaticallyImplyLeading: false,
-              backgroundColor: Colors.white,
-              title: Text(
-                'Conversor de Soluções',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 52, 63, 92),
-                  fontSize: 21,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(19.0),
-            child: Container(
-              height: 125,
-              width: 350,
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 233, 235, 240),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                ),
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Resultado',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
-                    child: Row(
-                      children: [
-                        Text(
-                          'VOLUME',
-                          style: TextStyle(
-                            fontSize: 17,
-                            color: Color.fromARGB(255, 169, 167, 167),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(_calcularSolucao(),
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
-              ),
-            ),
-          ),
+          const AppBarCalcs(label: 'Conversor de Soluções'),
+          ResultContainer(text1: 'VOLUME', text2: _calcularSolucao()),
           RestartButton(
               text: 'REINICAR', onPressed: () => GoRouter.of(context).pop()),
           InputUser(
