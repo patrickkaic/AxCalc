@@ -16,40 +16,33 @@ class InputUser extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Align(
             alignment: Alignment.bottomLeft,
-            child: Text(
-              'ENTRADAS',
-              style: TextStyle(
-                  color: Color.fromARGB(255, 169, 167, 167), fontSize: 15),
+            child: SizedBox(),
+          ),
+          const Text(
+            'ENTRADAS',
+            style: TextStyle(
+                color: Color.fromARGB(255, 169, 167, 167), fontSize: 15),
+          ),
+          Text(
+            text1,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
             ),
           ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              text1,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
+          Text(
+            text2,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
             ),
           ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              text2,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              text3,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
+          Text(
+            text3,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],

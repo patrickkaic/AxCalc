@@ -3,6 +3,7 @@ import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
 import 'package:axcalc/details_page/Componets/ValueScreen/result_container.dart';
 import 'package:axcalc/details_page/Componets/buttons/restart_button.dart';
 import 'package:axcalc/details_page/Componets/ValueScreen/user_input.dart';
+import 'package:axcalc/details_page/solutions/logic_solutions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,17 +16,6 @@ class ResultadoSolutions extends StatefulWidget {
 }
 
 class _ResultadoSolutionsState extends State<ResultadoSolutions> {
-  _calcularSolucao() {
-    double solucao = widget.solucao * 10;
-    double result = solucao;
-    return '${result.toStringAsFixed(2)} mg/ml';
-  }
-
-  _showValue() {
-    double input = widget.input;
-    return 'Concentração em solução: $input %';
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,11 +26,14 @@ class _ResultadoSolutionsState extends State<ResultadoSolutions> {
       body: Column(
         children: [
           const AppBarCalcs(label: 'Conversor de Soluções'),
-          ResultContainer(text1: 'VOLUME', text2: _calcularSolucao()),
+          ResultContainer(
+            text1: 'VOLUME',
+            text2: CalculadoraSolutions.calcularSolucao(widget.solucao),
+          ),
           RestartButton(
               text: 'REINICAR', onPressed: () => GoRouter.of(context).pop()),
           InputUser(
-            text1: _showValue(),
+            text1: CalculadoraSolutions.showValue(widget.input),
             text2: '',
             text3: '',
           ),
