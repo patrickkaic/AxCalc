@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:axcalc/homescreen/my_cards.dart';
+import 'package:axcalc/homescreen/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -58,46 +59,24 @@ class _HomePageState extends State<HomePage> {
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
-            Container(
-              constraints: BoxConstraints(maxHeight: 63),
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: TextField(
-                controller: _searchController,
-                decoration: InputDecoration(
-                  hintText: 'Buscar cálculo',
-                  filled: true,
-                  fillColor: Color.fromARGB(35, 88, 89, 92),
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.clear),
-                    onPressed: () => _searchController.clear(),
-                  ),
-                  prefixIcon: IconButton(
-                    icon: Icon(Icons.search),
-                    onPressed: null,
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide: BorderSide(color: Colors.transparent),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide: BorderSide(color: Colors.transparent),
-                  ),
-                ),
-              ),
+            SearchingBar(
+              controller: _searchController,
+              hintText: 'Buscar cálculo',
+              onPressed: () => _searchController.clear(),
             ),
             Expanded(
               child: ListView.builder(
-                  itemCount: myCardFilter.length,
-                  itemBuilder: (context, index) {
-                    final card = myCardFilter[index];
-                    return MyCards(
-                      text: card['text']!,
-                      onTap: () {
-                        GoRouter.of(context).push(card['url']!);
-                      },
-                    );
-                  }),
+                itemCount: myCardFilter.length,
+                itemBuilder: (context, index) {
+                  final card = myCardFilter[index];
+                  return MyCards(
+                    text: card['text']!,
+                    onTap: () {
+                      GoRouter.of(context).push(card['url']!);
+                    },
+                  );
+                },
+              ),
             )
           ],
         ),
