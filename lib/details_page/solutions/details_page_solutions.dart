@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
 import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
 import 'package:axcalc/details_page/Componets/TextForms/labeled_textform.dart';
@@ -32,14 +30,14 @@ class _DetailsPagesSolutionsState extends State<DetailsPagesSolutions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(40.0),
         child: MyAppBar(),
       ),
       body: Column(
         children: [
-          AppBarCalcs(label: 'Conversor de Soluções'),
-          SizedBox(height: 20),
+          const AppBarCalcs(label: 'Conversor de Soluções'),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

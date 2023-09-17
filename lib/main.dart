@@ -1,11 +1,10 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:axcalc/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-final Color onPrimary = Color(0xFF468EF7);
+final Color onPrimary = const Color(0xFF468EF7);
 
-void main() => runApp(AxCalc());
+void main() => runApp(const AxCalc());
 
 class AxCalc extends StatefulWidget {
   const AxCalc({super.key});

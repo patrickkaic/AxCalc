@@ -2,7 +2,6 @@ import 'package:axcalc/details_page/IMC/details_page_imc.dart';
 import 'package:axcalc/details_page/infusion/details_page_infusion.dart';
 import 'package:axcalc/details_page/jejum/details_page_jejum.dart';
 import 'package:axcalc/details_page/solutions/details_page_solutions.dart';
-
 import 'package:axcalc/intro_screen/intro_screen.dart';
 import 'package:axcalc/homescreen/home_page.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +20,7 @@ List<GoRoute> appRotes = [
       return CustomTransitionPage(
         transitionDuration: const Duration(seconds: 1),
         key: state.pageKey,
-        child: HomePage(),
+        child: const HomePage(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(
             opacity: CurveTween(curve: Curves.easeInOutCirc).animate(animation),
