@@ -2,7 +2,7 @@ import 'package:axcalc/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-final Color onPrimary = const Color(0xFF468EF7);
+const Color onPrimary = Color(0xFF468EF7);
 
 void main() => runApp(const AxCalc());
 
