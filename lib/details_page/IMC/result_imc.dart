@@ -3,6 +3,7 @@ import 'package:axcalc/details_page/Componets/AppBar/app_bar_result.dart';
 import 'package:axcalc/details_page/Componets/ValueScreen/result_container.dart';
 import 'package:axcalc/details_page/Componets/buttons/restart_button.dart';
 import 'package:axcalc/details_page/Componets/ValueScreen/user_input.dart';
+import 'package:axcalc/details_page/IMC/infos_imc.dart';
 import 'package:axcalc/details_page/IMC/logic_imc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -25,9 +26,14 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
   Widget build(BuildContext context) {
     double imc = CalculadoraIMC.calcularIMC(widget.peso, widget.altura);
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(40.0),
-        child: AppBarResults(),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(40.0),
+        child: AppBarResults(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const InfoButtonIMC()));
+          },
+        ),
       ),
       body: Column(
         children: [

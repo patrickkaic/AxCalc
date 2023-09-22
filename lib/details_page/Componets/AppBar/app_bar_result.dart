@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AppBarResults extends StatelessWidget {
-  const AppBarResults({super.key});
+  final VoidCallback? onPressed;
+  const AppBarResults({super.key, this.onPressed});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: onPressed,
               icon: const Icon(
                 Icons.info_outline,
                 color: Colors.grey,
