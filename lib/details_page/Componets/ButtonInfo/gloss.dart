@@ -53,7 +53,7 @@ class GlossScreen extends StatelessWidget {
             : const SizedBox(),
         text6 != null
             ? Text(
-                text5 ?? 'Text 5',
+                text6 ?? 'Text 5',
                 style:
                     const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
               )
