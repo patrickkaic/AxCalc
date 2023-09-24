@@ -14,27 +14,30 @@ class SearchingBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        hintText: hintText,
-        filled: true,
-        fillColor: const Color.fromARGB(35, 88, 89, 92),
-        suffixIcon: IconButton(
-          icon: const Icon(Icons.clear),
-          onPressed: onPressed,
-        ),
-        prefixIcon: const IconButton(
-          icon: Icon(Icons.search),
-          onPressed: null,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.0),
-          borderSide: const BorderSide(color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15.0),
-          borderSide: const BorderSide(color: Colors.transparent),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          hintText: hintText,
+          filled: true,
+          fillColor: const Color.fromARGB(35, 88, 89, 92),
+          suffixIcon: IconButton(
+            icon: const Icon(Icons.clear),
+            onPressed: onPressed,
+          ),
+          prefixIcon: const IconButton(
+            icon: Icon(Icons.search),
+            onPressed: null,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15.0),
+            borderSide: const BorderSide(color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15.0),
+            borderSide: const BorderSide(color: Colors.transparent),
+          ),
         ),
       ),
     );
