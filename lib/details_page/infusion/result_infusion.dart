@@ -49,6 +49,7 @@ class _ResultadoTaxaState extends State<ResultadoTaxa> {
             text1: CalculadoraInfunsion.showValue(widget.volume),
             text2: CalculadoraInfunsion.showValue2(widget.horas),
             text3: '',
+            text4: '',
           )
         ],
       ),

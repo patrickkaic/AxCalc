@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class LabeledTextForm extends StatelessWidget {
   const LabeledTextForm(
       {super.key,
+      this.titulo,
       required this.label,
       this.sizedBoxwidth,
       required this.controller,
       required this.suffix});
 
+  final String? titulo;
   final String label;
   final double? sizedBoxwidth;
   final TextEditingController controller;
@@ -18,6 +20,19 @@ class LabeledTextForm extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        titulo != null
+            ? Text(
+                titulo ?? 'Titulo 1',
+                style: const TextStyle(
+                  color: Color.fromARGB(255, 52, 63, 92),
+                  fontSize: 21,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+            : const SizedBox(),
+        const SizedBox(
+          height: 8,
+        ),
         Text(label,
             style: const TextStyle(
                 fontSize: 14, color: Color.fromARGB(255, 169, 167, 167))),

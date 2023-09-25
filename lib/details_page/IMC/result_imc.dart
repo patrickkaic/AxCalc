@@ -55,6 +55,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
             text1: CalculadoraIMC.showValue(widget.sexo),
             text2: CalculadoraIMC.showValue2(widget.peso),
             text3: CalculadoraIMC.showValue3(widget.altura),
+            text4: '',
           ),
         ],
       ),

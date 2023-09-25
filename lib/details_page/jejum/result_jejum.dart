@@ -51,6 +51,7 @@ class _ResultadoJejumState extends State<ResultadoJejum> {
             text1: CalculadoraJejum.showValue(widget.peso),
             text2: CalculadoraJejum.showValue2(widget.horas),
             text3: '',
+            text4: '',
           ),
         ],
       ),

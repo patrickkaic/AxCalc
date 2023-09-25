@@ -6,10 +6,12 @@ class InputUser extends StatelessWidget {
     required this.text1,
     required this.text2,
     required this.text3,
+    required this.text4,
   });
   final String text1;
   final String text2;
   final String text3;
+  final String text4;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,12 @@ class InputUser extends StatelessWidget {
           ),
           Text(
             text3,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            text4,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
             ),

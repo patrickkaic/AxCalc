@@ -1,4 +1,5 @@
 import 'package:axcalc/details_page/IMC/details_page_imc.dart';
+import 'package:axcalc/details_page/Variation/details_page_variation.dart';
 import 'package:axcalc/details_page/infusion/details_page_infusion.dart';
 import 'package:axcalc/details_page/jejum/details_page_jejum.dart';
 import 'package:axcalc/details_page/solutions/details_page_solutions.dart';
@@ -52,6 +53,12 @@ List<GoRoute> appRotes = [
     path: '/detalhessol',
     builder: (context, state) {
       return const DetailsPagesSolutions();
+    },
+  ),
+  GoRoute(
+    path: '/detalhesvar',
+    builder: (context, state) {
+      return const DetailsPageVariation();
     },
   ),
 ];

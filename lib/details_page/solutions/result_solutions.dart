@@ -44,6 +44,7 @@ class _ResultadoSolutionsState extends State<ResultadoSolutions> {
             text1: CalculadoraSolutions.showValue(widget.input),
             text2: '',
             text3: '',
+            text4: '',
           ),
         ],
       ),

@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     {'text': 'Reposição de Jejum', 'url': '/detalhesjejum'},
     {'text': 'Taxa de Infusão em ml/h', 'url': '/detalhesinf'},
     {'text': 'Conversor de Soluções', 'url': '/detalhessol'},
+    {'text': 'Variação de Volume Sistólico', 'url': '/detalhesvar'}
   ];
 
   late List<Map<String, dynamic>> myCardFilter = myCards;
