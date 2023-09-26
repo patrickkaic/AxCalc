@@ -1,8 +1,8 @@
-import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
-import 'package:axcalc/details_page/Componets/AppBar/app_bar_result.dart';
-import 'package:axcalc/details_page/Componets/ValueScreen/result_container.dart';
-import 'package:axcalc/details_page/Componets/ValueScreen/user_input.dart';
-import 'package:axcalc/details_page/Componets/buttons/restart_button.dart';
+import 'package:axcalc/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/Componets/AppBar/app_bar_result.dart';
+import 'package:axcalc/Componets/ValueScreen/result_container.dart';
+import 'package:axcalc/Componets/ValueScreen/user_input.dart';
+import 'package:axcalc/Componets/buttons/restart_button.dart';
 import 'package:axcalc/details_page/Variation/infos_variation.dart';
 import 'package:axcalc/details_page/Variation/logic_variation.dart';
 import 'package:flutter/material.dart';

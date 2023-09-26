@@ -1,8 +1,8 @@
-import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
-import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
-import 'package:axcalc/details_page/Componets/TextForms/labeled_textform.dart';
-import 'package:axcalc/details_page/Componets/ToggleSwitch/toggleswitch.dart';
-import 'package:axcalc/details_page/Componets/buttons/main_button.dart';
+import 'package:axcalc/Componets/AppBar/app_bar.dart';
+import 'package:axcalc/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/Componets/TextForms/labeled_textform.dart';
+import 'package:axcalc/Componets/ToggleSwitch/toggleswitch.dart';
+import 'package:axcalc/Componets/buttons/main_button.dart';
 import 'package:axcalc/details_page/IMC/result_imc.dart';
 import 'package:flutter/material.dart';
 

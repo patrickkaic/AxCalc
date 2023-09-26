@@ -1,7 +1,7 @@
-import 'package:axcalc/details_page/Componets/AppBar/app_bar.dart';
-import 'package:axcalc/details_page/Componets/AppBar/app_bar_calcs.dart';
-import 'package:axcalc/details_page/Componets/ButtonInfo/gloss.dart';
-import 'package:axcalc/details_page/Componets/ButtonInfo/info_button.dart';
+import 'package:axcalc/Componets/AppBar/app_bar.dart';
+import 'package:axcalc/Componets/AppBar/app_bar_calcs.dart';
+import 'package:axcalc/Componets/ButtonInfo/gloss.dart';
+import 'package:axcalc/Componets/ButtonInfo/info_button.dart';
 import 'package:flutter/material.dart';
 
 class InfoButtonInfusion extends StatelessWidget {
