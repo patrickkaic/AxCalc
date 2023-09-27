@@ -1,3 +1,4 @@
+import 'package:axcalc/details_page/Fracion/details_page_fracion.dart';
 import 'package:axcalc/details_page/IMC/details_page_imc.dart';
 import 'package:axcalc/details_page/Variation/details_page_variation.dart';
 import 'package:axcalc/details_page/infusion/details_page_infusion.dart';
@@ -59,6 +60,12 @@ List<GoRoute> appRotes = [
     path: '/detalhesvar',
     builder: (context, state) {
       return const DetailsPageVariation();
+    },
+  ),
+  GoRoute(
+    path: '/detalhesfracion',
+    builder: (context, state) {
+      return const DetailsPageFracion();
     },
   ),
 ];

@@ -6,6 +6,8 @@ class ToggleSwitchs extends StatelessWidget {
   final List<String> labels;
   final Function(int? index) onToggle;
   final int selectedIndex;
+  final double? minWidth;
+  final double? minHeight;
 
   const ToggleSwitchs({
     super.key,
@@ -13,6 +15,8 @@ class ToggleSwitchs extends StatelessWidget {
     required this.labels,
     required this.onToggle,
     required this.selectedIndex,
+    this.minHeight,
+    this.minWidth,
   });
 
   @override
@@ -25,8 +29,8 @@ class ToggleSwitchs extends StatelessWidget {
                 fontSize: 14, color: Color.fromARGB(255, 169, 167, 167))),
         ToggleSwitch(
           initialLabelIndex: selectedIndex,
-          minWidth: 180,
-          minHeight: 40,
+          minWidth: minWidth ?? 180,
+          minHeight: minHeight ?? 40,
           cornerRadius: 90,
           fontSize: 17,
           activeBorders: [
@@ -37,7 +41,8 @@ class ToggleSwitchs extends StatelessWidget {
           ],
           activeBgColors: const [
             [Color.fromARGB(255, 155, 201, 237)],
-            [Color.fromARGB(255, 155, 201, 237)]
+            [Color.fromARGB(255, 155, 201, 237)],
+            [Color.fromARGB(255, 155, 201, 237)],
           ],
           borderColor: const [Color.fromARGB(255, 233, 230, 230)],
           borderWidth: 2.0,
