@@ -17,11 +17,12 @@ class MainButton extends StatelessWidget {
       height: 100,
       child: FittedBox(
         child: FloatingActionButton.extended(
+          backgroundColor: const Color.fromARGB(80, 70, 142, 247),
           elevation: 0,
           onPressed: onPressed,
           label: Text(
             text,
-            style: const TextStyle(fontSize: 15),
+            style: const TextStyle(fontSize: 15, color: Colors.blue),
           ),
         ),
       ),
